@@ -1,0 +1,11 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 8%;
+  height: 820px;
+  border: 1px solid black;
+  font-size: 22px;
+  text-align: center;
+}
