@@ -13,6 +13,7 @@ import ProduceList from './pages/ProduceList/ProduceList';
 import ProduceAdd from './pages/ProduceAdd/ProduceAdd';
 import SaleList from './pages/SaleList/SaleList';
 import SaleAdd from './pages/SaleAdd/SaleAdd';
+import AS from './pages/AS/AS';
 
 import Logo from './components/Logo/Logo';
 import Menu from './components/Menu/Menu';
@@ -61,6 +62,9 @@ function App() {
             </Route>
             <Route exact path="/SaleAdd">
               <SaleAdd />
+            </Route>
+            <Route exact path="/AS">
+              <AS />
             </Route>
           </div>
         </Switch>

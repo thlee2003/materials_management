@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 20px;
+  /* border: 1px solid red; */
+  width: 97.5%;
+}
+
+.list {
+  width: 69%;
+  margin-left: 20px;
+  border: 1px solid black;
+}
+
+.list2 {
+  width: 20%;
+  margin-left: 20px;
+  border: 1px solid black;
+}
+
+.h1 {
+  margin-left: 20px;
+}

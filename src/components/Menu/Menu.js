@@ -24,7 +24,9 @@ const Menu = () => {
         <Link to="/SaleList" style={{ textDecoration: 'none' }}>
           <p className={styles.p}>판매</p>
         </Link>
-        <p className={styles.p}>AS</p>
+        <Link to="/AS" style={{ textDecoration: 'none' }}>
+          <p className={styles.p}>AS</p>
+        </Link>
       </div>
     </div>
   );
