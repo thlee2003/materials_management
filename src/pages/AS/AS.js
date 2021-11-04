@@ -18,10 +18,6 @@ const AS = () => {
         <h1 className={styles.h1}>AS 목록</h1>
         <Table />
       </div>
-      <div className={styles.list2}>
-        <h1 className={styles.h1}>AS 자재 목록</h1>
-        <Table />
-      </div>
     </div>
   );
 };

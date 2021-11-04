@@ -12,24 +12,39 @@
   margin-left: 20px;
 }
 
-.input {
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top h1 {
+  margin-left: 20px;
+}
+
+.top input {
   width: 20%;
   height: 40px;
   font-size: 30px;
+  margin-left: -200px;
   margin-top: 20px;
-  margin-left: 40%;
   text-align: center;
 }
 
-.button {
-  width: 6%;
-  height: 60px;
-  float: right;
+.top button,
+.middle button {
+  width: 7%;
+  height: 50px;
   margin-top: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
+  font-size: 20px;
 }
 
-.h1 {
+.middle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.middle h2 {
   margin-left: 20px;
 }

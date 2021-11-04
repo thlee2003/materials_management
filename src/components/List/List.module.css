@@ -1,0 +1,28 @@
+.container {
+  height: 0;
+  opacity: 0;
+  display: flex;
+  overflow: hidden;
+  transition: all 600ms ease-in-out;
+}
+
+.container.show {
+  height: 180px;
+  opacity: 1;
+}
+
+.list {
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.list span {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.list p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-left: 20px;
+}

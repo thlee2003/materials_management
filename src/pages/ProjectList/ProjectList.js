@@ -22,10 +22,6 @@ const ProjectList = () => {
         <h1 className={styles.h1}>프로젝트 목록</h1>
         <Table />
       </div>
-      <div className={styles.list2}>
-        <h1 className={styles.h1}>자재 목록</h1>
-        <Table />
-      </div>
     </div>
   );
 };

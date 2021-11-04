@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Checkbox.module.css';
 
-const Checkbox = () => {
+const Checkbox = ({ check }) => {
   return (
     <div className={styles.div}>
-      <input type="checkbox" />
+      {check.map((check) => (
+        <div className={styles.checkbox}>
+          <input type="checkbox" />
+          <label>{check}</label>
+        </div>
+      ))}
     </div>
   );
 };

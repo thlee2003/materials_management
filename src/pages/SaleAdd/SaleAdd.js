@@ -19,7 +19,10 @@ const SaleAdd = () => {
     <div className={styles.header}>
       <Sidebar links={links} />
       <div className={styles.div}>
-        <h1 className={styles.h1}>판매 등록</h1>
+        <div className={styles.top}>
+          <h1 className={styles.h1}>판매 등록</h1>
+          <button>등록</button>
+        </div>
         <Table />
       </div>
     </div>

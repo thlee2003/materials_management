@@ -19,10 +19,16 @@ const ProjectAdd = () => {
     <div className={styles.header}>
       <Sidebar links={links} />
       <div className={styles.div}>
-        <input className={styles.input} type="text" name="" id="" />
-        <button className={styles.button}>등록</button>
+        <div className={styles.top}>
+          <h1>프로젝트 등록</h1>
+          <input type="text" name="" id="" />
+          <button>등록</button>
+        </div>
         <div>
-          <h1 className={styles.h1}>자재 목록</h1>
+          <div className={styles.middle}>
+            <h2>자재 목록</h2>
+            <button>추가</button>
+          </div>
           <Table />
         </div>
       </div>

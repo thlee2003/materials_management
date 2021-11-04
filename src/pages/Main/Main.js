@@ -6,11 +6,12 @@ import Checkbox from '../../components/Checkbox/Checkbox';
 import Table from '../../components/Table/Table';
 
 const Main = () => {
+  const check = ['PART', 'PBA', '반제품', '완제품'];
   return (
     <div className="main">
       <div className={styles.header}>
         <Search />
-        <Checkbox />
+        <Checkbox check={check} />
       </div>
       <div className={styles.header}>
         <Table />
