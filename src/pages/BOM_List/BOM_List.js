@@ -20,7 +20,7 @@ const BOM_List = () => {
       <Sidebar links={links} />
       <div className={styles.div}>
         <div className={styles.content}>
-          <h1 className={styles.h1}>BOM 목록</h1>
+          <h1>BOM 목록</h1>
           <List />
           <List />
           <List />

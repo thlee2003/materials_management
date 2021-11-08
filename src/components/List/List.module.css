@@ -12,17 +12,23 @@
 }
 
 .list {
+  margin-top: 20px;
   cursor: pointer;
   margin-left: 5px;
+  /* border: 1px solid red; */
+}
+
+.list label {
+  width: 90px;
 }
 
 .list span {
-  font-size: 20px;
+  font-size: 15px;
   margin-right: 5px;
 }
 
 .list p {
-  font-size: 15px;
+  font-size: 10px;
   line-height: 1.6;
   margin-left: 20px;
 }

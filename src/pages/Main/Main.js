@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Main.module.css';
 
 import Search from '../../components/Search/Search';
@@ -13,7 +13,7 @@ const Main = () => {
         <Search />
         <Checkbox check={check} />
       </div>
-      <div className={styles.header}>
+      <div className={styles.content}>
         <Table />
       </div>
     </div>

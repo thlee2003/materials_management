@@ -12,7 +12,7 @@ const Table = () => {
         colHeaders={true}
         rowHeaders={true}
         width="100%"
-        height="600"
+        height="200"
         licenseKey="non-commercial-and-evaluation"
         stretchH="all"
       />

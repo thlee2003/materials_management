@@ -11,7 +11,9 @@ const Material = () => {
           <h1 className={styles.h1}>자재 등록</h1>
           <button>등록</button>
         </div>
-        <Table />
+        <div className={styles.table}>
+          <Table />
+        </div>
       </div>
     </div>
   );
