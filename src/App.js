@@ -5,8 +5,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import Material from './pages/Material/Material';
-import BOM_List from './pages/BOM_List/BOM_List';
-import BOM_Add from './pages/BOM_Add/BOM_Add';
+import BOMList from './pages/BOMList/BOMList';
+import BOMAdd from './pages/BOMAdd/BOMAdd';
 import ProjectList from './pages/ProjectList/ProjectList';
 import ProjectAdd from './pages/ProjectAdd/ProjectAdd';
 import ProduceList from './pages/ProduceList/ProduceList';
@@ -39,11 +39,11 @@ function App() {
             <Route exact path="/Material">
               <Material />
             </Route>
-            <Route exact path="/BOM_List">
-              <BOM_List />
+            <Route exact path="/BOMList">
+              <BOMList />
             </Route>
-            <Route exact path="/BOM_Add">
-              <BOM_Add />
+            <Route exact path="/BOMAdd">
+              <BOMAdd />
             </Route>
             <Route exact path="/ProjectList">
               <ProjectList />

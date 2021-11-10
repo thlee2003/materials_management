@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './ProjectList.module.css';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
-import Table from '../../components/Table/Table';
 import List from '../../components/List/List';
 
 const ProjectList = () => {

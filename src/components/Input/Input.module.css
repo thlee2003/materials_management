@@ -1,0 +1,16 @@
+.input {
+  display: flex;
+  align-items: center;
+}
+
+.input p {
+  width: 110px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.input input {
+  width: 400px;
+  height: 40px;
+  font-size: 20px;
+}

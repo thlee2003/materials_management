@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import styles from './BOM_Add.module.css';
+import styles from './BOMAdd.module.css';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Table from '../../components/Table/Table';
 import Popup from '../../components/Popup/Popup';
 
-const BOM_Add = () => {
+const BOMAdd = () => {
   const [bool, setBool] = useState(false);
   const [data, setData] = useState();
   const a = [];
   const links = [
     {
-      to: '/BOM_List',
+      to: '/BOMList',
       name: 'BOM 목록',
     },
     {
-      to: '/BOM_Add',
+      to: '/BOMAdd',
       name: 'BOM 등록',
     },
   ];
@@ -47,4 +47,4 @@ const BOM_Add = () => {
   );
 };
 
-export default BOM_Add;
+export default BOMAdd;

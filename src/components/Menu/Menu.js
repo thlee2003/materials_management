@@ -12,7 +12,7 @@ const Menu = () => {
         <Link to="/Material" style={{ textDecoration: 'none' }}>
           <p className={styles.p}>자재</p>
         </Link>
-        <Link to="/BOM_List" style={{ textDecoration: 'none' }}>
+        <Link to="/BOMList" style={{ textDecoration: 'none' }}>
           <p className={styles.p}>BOM</p>
         </Link>
         <Link to="/ProjectList" style={{ textDecoration: 'none' }}>
