@@ -20,15 +20,11 @@
 
 .list label {
   width: 90px;
+  cursor: pointer;
 }
 
 .list span {
   font-size: 15px;
   margin-right: 5px;
-}
-
-.list p {
-  font-size: 10px;
-  line-height: 1.6;
-  margin-left: 20px;
+  cursor: pointer;
 }

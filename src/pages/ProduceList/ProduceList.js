@@ -8,19 +8,19 @@ const ProduceList = () => {
   const links = [
     {
       to: '/ProduceList',
-      name: '생산 목록',
+      name: '제품 목록',
     },
     {
       to: '/ProduceAdd',
-      name: '생산 등록',
+      name: '제품 등록',
     },
   ];
   return (
     <div className={styles.header}>
       <Sidebar links={links} />
       <div className={styles.div}>
-        <h1 className={styles.h1}>생산 목록</h1>
-        <Table />
+        <h1 className={styles.h1}>제품 목록</h1>
+        <Table height={730} />
       </div>
     </div>
   );

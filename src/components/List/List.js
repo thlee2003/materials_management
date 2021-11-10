@@ -11,9 +11,9 @@ const List = () => {
   return (
     <div className={styles.list} onClick={onclick}>
       <span>{bool === false ? '|||' : 'X'}</span>
-      <label>BOM 이름</label>
+      <label>이름</label>
       <div className={bool === true ? styles.container.show : styles.container}>
-        <Table />
+        <Table height={150} />
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const Material = () => {
           <button>등록</button>
         </div>
         <div className={styles.table}>
-          <Table />
+          <Table height={730} />
         </div>
       </div>
     </div>

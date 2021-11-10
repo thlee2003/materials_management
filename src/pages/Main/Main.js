@@ -14,7 +14,7 @@ const Main = () => {
         <Checkbox check={check} />
       </div>
       <div className={styles.content}>
-        <Table />
+        <Table height={760} />
       </div>
     </div>
   );

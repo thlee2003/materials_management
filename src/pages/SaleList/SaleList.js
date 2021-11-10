@@ -20,7 +20,7 @@ const SaleList = () => {
       <Sidebar links={links} />
       <div className={styles.div}>
         <h1 className={styles.h1}>판매 목록</h1>
-        <Table />
+        <Table height={730} />
       </div>
     </div>
   );

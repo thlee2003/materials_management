@@ -7,6 +7,7 @@ import Popup from '../../components/Popup/Popup';
 
 const ProjectAdd = () => {
   const [bool, setBool] = useState(false);
+  const [data, setData] = useState();
   const links = [
     {
       to: '/ProjectList',
@@ -17,8 +18,9 @@ const ProjectAdd = () => {
       name: '프로젝트 등록',
     },
   ];
-  const showPopup = () => {
+  const showPopup = (hotData) => {
     setBool(!bool);
+    setData(hotData);
   };
   return (
     <div className={styles.header}>
@@ -35,7 +37,7 @@ const ProjectAdd = () => {
             <h2>자재 목록</h2>
             <button onClick={showPopup}>추가</button>
           </div>
-          {bool ? null : <Table />}
+          {bool ? null : <Table data={data} height={630} />}
         </div>
       </div>
     </div>

@@ -12,8 +12,8 @@ const Login = () => {
   return (
     <div>
       <form onSubmit={onsubmit} className={styles.login}>
-        <input className={styles.input} type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        <input className={styles.input} type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input className={styles.input} placeholder="이름" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <input className={styles.input} placeholder="이메일" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <button className={styles.button}>로그인</button>
       </form>
     </div>

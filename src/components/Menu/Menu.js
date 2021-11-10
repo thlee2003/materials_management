@@ -19,7 +19,7 @@ const Menu = () => {
           <p className={styles.p}>프로젝트</p>
         </Link>
         <Link to="/ProduceList" style={{ textDecoration: 'none' }}>
-          <p className={styles.p}>생산</p>
+          <p className={styles.p}>제품</p>
         </Link>
         <Link to="/SaleList" style={{ textDecoration: 'none' }}>
           <p className={styles.p}>판매</p>
