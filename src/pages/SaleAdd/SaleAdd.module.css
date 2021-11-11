@@ -34,7 +34,8 @@
   text-align: center;
 }
 
-.top button {
+.top button,
+.middle button {
   width: 7%;
   height: 50px;
   margin-top: 20px;
@@ -86,4 +87,8 @@
 
 .date p {
   width: 110px;
+}
+.middle {
+  display: flex;
+  justify-content: space-between;
 }

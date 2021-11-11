@@ -3,7 +3,7 @@ import styles from './SaleAdd.module.css';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import './react-datepicker.css';
+import '../../react-datepicker.css';
 import { ko } from 'date-fns/esm/locale';
 
 import Sidebar from '../../components/Sidebar/Sidebar';

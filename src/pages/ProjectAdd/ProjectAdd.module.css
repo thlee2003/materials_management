@@ -40,11 +40,31 @@
   font-size: 20px;
 }
 
+.info,
+.middle {
+  margin-left: 20px;
+}
+
+.one {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin-left: 10%;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  width: 505px;
+}
+
+.date p {
+  width: 110px;
+  font-size: 20px;
+  text-align: center;
+}
+
 .middle {
   display: flex;
   justify-content: space-between;
-}
-
-.middle h2 {
-  margin-left: 20px;
 }

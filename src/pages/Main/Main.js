@@ -6,6 +6,7 @@ import Checkbox from '../../components/Checkbox/Checkbox';
 import Table from '../../components/Table/Table';
 
 const Main = () => {
+  const column = ['a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'];
   const check = ['PART', 'PBA', '반제품', '완제품'];
   return (
     <div className="main">
@@ -14,7 +15,7 @@ const Main = () => {
         <Checkbox check={check} />
       </div>
       <div className={styles.content}>
-        <Table height={760} />
+        <Table height={760} column={column} />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 .div {
-  width: 30%;
+  width: 40%;
   display: flex;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .button {
-  width: 50px;
+  width: 100px;
   margin-left: 5px;
   font-size: 15px;
 }

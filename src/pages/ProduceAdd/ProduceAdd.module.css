@@ -8,7 +8,11 @@
 
 .div {
   border: 1px solid black;
+  margin-left: 20px;
   width: 91%;
+}
+
+.h1 {
   margin-left: 20px;
 }
 
@@ -40,17 +44,14 @@
   font-size: 20px;
 }
 
+.info,
 .middle {
+  margin-left: 20px;
+}
+
+.input {
   display: flex;
-  justify-content: space-between;
-}
-
-.middle h2 {
-  margin-left: 20px;
-}
-
-.info {
-  margin-left: 20px;
+  align-items: center;
 }
 
 .one {
@@ -72,7 +73,16 @@
   font-size: 20px;
 }
 
-.input {
+.date {
   display: flex;
   align-items: center;
+  width: 505px;
+}
+
+.date p {
+  width: 110px;
+}
+.middle {
+  display: flex;
+  justify-content: space-between;
 }

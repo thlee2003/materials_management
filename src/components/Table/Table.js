@@ -3,7 +3,7 @@ import { HotTable } from '@handsontable/react';
 import Handsontable from 'handsontable';
 import styles from './Table.module.css';
 
-const Table = ({ data, height }) => {
+const Table = ({ data, height, column }) => {
   let hotData = [];
   if (data && data.length > 0) {
     data.map((a) => hotData.push(a));
@@ -15,7 +15,7 @@ const Table = ({ data, height }) => {
     <div className={styles.div}>
       <HotTable
         data={hotData}
-        colHeaders={true}
+        colHeaders={column}
         rowHeaders={true}
         width="100%"
         height={height}
