@@ -12,12 +12,12 @@ import Popup from '../../components/Popup/Popup';
 import Input from '../../components/Input/Input';
 
 const ProduceAdd = () => {
+  const column = ['코드', '분류', '품목명', ' 수량', '단가', '총금액', '날짜', '작성자'];
   const [bool, setBool] = useState(false);
   const [data, setData] = useState();
   const [name, setName] = useState('');
   const [select, setSelect] = useState('완제품');
   const [startDate, setStartDate] = useState(new Date());
-  const [writer, setWriter] = useState('구건우');
   const links = [
     {
       to: '/ProduceList',
@@ -73,7 +73,7 @@ const ProduceAdd = () => {
               <h2>자재 목록</h2>
               <button onClick={showPopup}>추가</button>
             </div>
-            {bool ? null : <Table data={data} height={495} />}
+            {bool ? null : <Table data={data} height={495} column={column} />}
           </div>
         </div>
       </div>

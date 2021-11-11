@@ -6,7 +6,7 @@ import Checkbox from '../../components/Checkbox/Checkbox';
 import Table from '../../components/Table/Table';
 
 const Main = () => {
-  const column = ['a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'];
+  const column = ['코드', '분류', '품목명', '수량', '단가', '총금액', '날짜', '작성자'];
   const check = ['PART', 'PBA', '반제품', '완제품'];
   return (
     <div className="main">
