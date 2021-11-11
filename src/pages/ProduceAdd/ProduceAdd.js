@@ -4,10 +4,14 @@ import styles from './ProduceAdd.module.css';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Table from '../../components/Table/Table';
 import Popup from '../../components/Popup/Popup';
+import Input from '../../components/Input/Input';
 
 const ProduceAdd = () => {
   const [bool, setBool] = useState(false);
   const [data, setData] = useState();
+  const [name, setName] = useState('');
+  const [select, setSelect] = useState('완제품');
+
   const links = [
     {
       to: '/ProduceList',
@@ -32,21 +36,20 @@ const ProduceAdd = () => {
           <button>등록</button>
         </div>
         <div className={styles.info}>
-          <div className={styles.inp1}>
-            <div>
-              <input type="text" name="" id="" />
-            </div>
-            <div>
-              <input type="text" name="" id="" />
+          <h2>제품 정보</h2>
+          <div className={styles.one}>
+            <Input name={'제품명'} input={name} setInput={setName} />
+            <div className={styles.input} name="a">
+              <p>분류</p>
+              <select value={select} onChange={(e) => setSelect(e.target.value)}>
+                <option value="완제품">완제품</option>
+                <option value="반제품">반제품</option>
+              </select>
             </div>
           </div>
-          <div className={styles.inp2}>
-            <div>
-              <input type="text" name="" id="" />
-            </div>
-            <div>
-              <input type="text" name="" id="" />
-            </div>
+          <div className={styles.one}>
+            <Input name={'제품명'} input={name} setInput={setName} />
+            <Input />
           </div>
         </div>
         <div>
@@ -54,7 +57,7 @@ const ProduceAdd = () => {
             <h2>자재 목록</h2>
             <button onClick={showPopup}>추가</button>
           </div>
-          {bool ? null : <Table data={data} height={570} />}
+          {bool ? null : <Table data={data} height={495} />}
         </div>
       </div>
     </div>

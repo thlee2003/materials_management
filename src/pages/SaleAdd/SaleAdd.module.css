@@ -74,5 +74,16 @@
 .one textarea {
   margin-top: 30px;
   width: 1060px;
+  height: 190px;
   font-size: 20px;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  width: 505px;
+}
+
+.date p {
+  width: 110px;
 }

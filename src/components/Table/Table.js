@@ -9,7 +9,7 @@ const Table = ({ data, height }) => {
     data.map((a) => hotData.push(a));
     console.log(hotData);
   } else {
-    hotData = Handsontable.helper.createSpreadsheetData(60, 10);
+    hotData = Handsontable.helper.createSpreadsheetData(1, 10);
   }
   return (
     <div className={styles.div}>

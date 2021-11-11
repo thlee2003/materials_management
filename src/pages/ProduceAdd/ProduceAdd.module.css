@@ -50,5 +50,29 @@
 }
 
 .info {
+  margin-left: 20px;
+}
+
+.one {
   display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin-left: 10%;
+}
+
+.one p {
+  width: 110px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.one select {
+  width: 407px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
 }

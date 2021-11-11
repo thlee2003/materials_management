@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import styles from './SaleAdd.module.css';
 
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import './react-datepicker.css';
+import { ko } from 'date-fns/esm/locale';
+
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Input from '../../components/Input/Input';
 
@@ -14,6 +19,7 @@ const SaleAdd = () => {
   const [select, setSelect] = useState('판매');
   const [price, setPrice] = useState('');
   const [note, setNote] = useState('');
+  const [startDate, setStartDate] = useState(new Date());
   const links = [
     {
       to: '/SaleList',
@@ -62,6 +68,19 @@ const SaleAdd = () => {
                 </select>
               </div>
               <Input name={'가격'} input={price} setInput={setPrice} />
+            </div>
+            <div className={styles.one}>
+              <Input name={'시리얼코드'} />
+              <div className={styles.date}>
+                <p>날짜</p>
+                <DatePicker
+                  locale={ko}
+                  dateFormat="yyyy년 MM월 dd일"
+                  popperPlacement="top"
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                />
+              </div>
             </div>
             <div className={styles.one}>
               <div className={styles.input}>
