@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import styles from './BOM_List.module.css';
+import React from 'react';
+import styles from './BOMList.module.css';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
 import List from '../../components/List/List';
 
-const BOM_List = () => {
+const BOMList = () => {
   const links = [
     {
-      to: '/BOM_List',
+      to: '/BOMList',
       name: 'BOM 목록',
     },
     {
-      to: '/BOM_Add',
+      to: '/BOMAdd',
       name: 'BOM 등록',
     },
   ];
@@ -34,4 +34,4 @@ const BOM_List = () => {
   );
 };
 
-export default BOM_List;
+export default BOMList;

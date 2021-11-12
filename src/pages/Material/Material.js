@@ -4,6 +4,7 @@ import styles from './Material.module.css';
 import Table from '../../components/Table/Table';
 
 const Material = () => {
+  const column = ['코드', '분류', '품목명', ' 수량', '단가', '총금액', '날짜', '작성자'];
   return (
     <div className={styles.header}>
       <div className={styles.div}>
@@ -12,7 +13,7 @@ const Material = () => {
           <button>등록</button>
         </div>
         <div className={styles.table}>
-          <Table />
+          <Table height={730} column={column} />
         </div>
       </div>
     </div>

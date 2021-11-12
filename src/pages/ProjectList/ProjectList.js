@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ProjectList.module.css';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
-import Table from '../../components/Table/Table';
+import List from '../../components/List/List';
 
 const ProjectList = () => {
   const links = [
@@ -18,9 +18,17 @@ const ProjectList = () => {
   return (
     <div className={styles.header}>
       <Sidebar links={links} />
-      <div className={styles.list}>
-        <h1 className={styles.h1}>프로젝트 목록</h1>
-        <Table />
+      <div className={styles.div}>
+        <div className={styles.content}>
+          <h1>프로젝트 목록</h1>
+          <List />
+          <List />
+          <List />
+          <List />
+          <List />
+          <List />
+          <List />
+        </div>
       </div>
     </div>
   );

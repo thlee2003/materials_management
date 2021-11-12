@@ -15,3 +15,80 @@
 .h1 {
   margin-left: 20px;
 }
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top h1 {
+  margin-left: 20px;
+}
+
+.top input {
+  width: 20%;
+  height: 40px;
+  font-size: 30px;
+  margin-left: -200px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.top button,
+.middle button {
+  width: 7%;
+  height: 50px;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.contents {
+  margin-left: 20px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+}
+
+.one {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin-left: 10%;
+}
+
+.one p {
+  width: 110px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.one select {
+  width: 407px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.one textarea {
+  margin-top: 30px;
+  width: 1060px;
+  height: 190px;
+  font-size: 20px;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  width: 505px;
+}
+
+.date p {
+  width: 110px;
+}
+.middle {
+  display: flex;
+  justify-content: space-between;
+}

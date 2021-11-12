@@ -16,7 +16,7 @@ const AS = () => {
       <Sidebar links={links} />
       <div className={styles.list}>
         <h1 className={styles.h1}>AS 목록</h1>
-        <Table />
+        <Table height={730} />
       </div>
     </div>
   );

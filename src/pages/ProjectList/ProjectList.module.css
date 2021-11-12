@@ -6,12 +6,12 @@
   width: 97.5%;
 }
 
-.list {
+.div {
+  border: 1px solid black;
   width: 91%;
   margin-left: 20px;
-  border: 1px solid black;
 }
 
-.h1 {
+.content {
   margin-left: 20px;
 }
