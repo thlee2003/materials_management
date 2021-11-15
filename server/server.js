@@ -8,6 +8,7 @@ const mysql = require('mysql');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/api', api);
 
 const db = mysql.createConnection({
     host : 'localhost',
