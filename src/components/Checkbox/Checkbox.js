@@ -9,11 +9,16 @@ const Checkbox = ({ check }) => {
     check3: true,
   });
   const handleSingleCheck = (index) => {
-    setChecked({
-      ...checked,
-      [`check${index}`]: !checked[`check${index}`],
-    });
-    console.log(!checked[`check${index}`]);
+    setChecked(
+      {
+        ...checked,
+        [`check${index}`]: !checked[`check${index}`],
+      },
+      console.log(!checked[`check${index}`])
+    );
+    if (checked.check0 == false) {
+      console.log('a');
+    }
   };
   return (
     <div className={styles.div}>

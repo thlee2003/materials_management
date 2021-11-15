@@ -14,6 +14,10 @@ const ProduceList = () => {
       name: '제품 목록',
     },
     {
+      to: '/AddQuantity',
+      name: '수량 추가',
+    },
+    {
       to: '/ProduceAdd',
       name: '제품 등록',
     },

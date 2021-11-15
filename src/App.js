@@ -11,6 +11,7 @@ import ProjectList from './pages/ProjectList/ProjectList';
 import ProjectAdd from './pages/ProjectAdd/ProjectAdd';
 import ProduceList from './pages/ProduceList/ProduceList';
 import ProduceAdd from './pages/ProduceAdd/ProduceAdd';
+import AddQuantity from './pages/AddQuantity/AddQuantity';
 import SaleList from './pages/SaleList/SaleList';
 import SaleAdd from './pages/SaleAdd/SaleAdd';
 import AS from './pages/AS/AS';
@@ -53,6 +54,9 @@ function App() {
             </Route>
             <Route exact path="/ProduceList">
               <ProduceList />
+            </Route>
+            <Route exact path="/AddQuantity">
+              <AddQuantity />
             </Route>
             <Route exact path="/ProduceAdd">
               <ProduceAdd />
