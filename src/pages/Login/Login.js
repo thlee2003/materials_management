@@ -1,6 +1,6 @@
 import axios from 'axios';
 // import { response } from 'express';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './Login.module.css';
 
 const Login = () => {
@@ -23,7 +23,7 @@ const Login = () => {
       userName: name,
       userEmail: email
     }).then((response) => {
-      if(response.data.data == 'true') {
+      if(response.data.data === 'true') {
         window.location.replace('/Main');
       } else {
         alert("로그인에 실패하였습니다.")
