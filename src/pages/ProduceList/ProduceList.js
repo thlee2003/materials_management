@@ -4,6 +4,8 @@ import styles from './ProduceList.module.css';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Table from '../../components/Table/Table';
 
+import data from '../../data.json';
+
 const ProduceList = () => {
   const column = ['코드', '분류', '제품명', ' 수량', '금액', '날짜', '작성자'];
   const links = [
@@ -21,7 +23,7 @@ const ProduceList = () => {
       <Sidebar links={links} />
       <div className={styles.div}>
         <h1 className={styles.h1}>제품 목록</h1>
-        <Table height={730} column={column} />
+        <Table height={730} column={column} data={data.produce} />
       </div>
     </div>
   );

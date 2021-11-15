@@ -4,6 +4,8 @@ import styles from './BOMList.module.css';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import List from '../../components/List/List';
 
+import data from '../../data.json';
+
 const BOMList = () => {
   const links = [
     {
@@ -21,13 +23,9 @@ const BOMList = () => {
       <div className={styles.div}>
         <div className={styles.content}>
           <h1>BOM 목록</h1>
-          <List />
-          <List />
-          <List />
-          <List />
-          <List />
-          <List />
-          <List />
+          {data.BOM.map((a) => (
+            <List name={a.name} data={a.data} />
+          ))}
         </div>
       </div>
     </div>

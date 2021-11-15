@@ -18,7 +18,6 @@ const SaleAdd = () => {
   const [quantity, setQuantity] = useState('');
   const [select, setSelect] = useState('판매');
   const [price, setPrice] = useState('');
-  const [note, setNote] = useState('');
   const [startDate, setStartDate] = useState(new Date());
   const links = [
     {
@@ -31,7 +30,7 @@ const SaleAdd = () => {
     },
   ];
   const onclick = () => {
-    console.log(name, address, phone, email, prodName, quantity, select, price, note);
+    console.log(name, address, phone, email, prodName, quantity, select, price);
   };
   return (
     <div className={styles.header}>
@@ -80,12 +79,6 @@ const SaleAdd = () => {
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}
                 />
-              </div>
-            </div>
-            <div className={styles.one}>
-              <div className={styles.input}>
-                <p>비고</p>
-                <textarea value={note} onChange={(e) => setNote(e.target.value)} cols="30" rows="10"></textarea>
               </div>
             </div>
           </div>

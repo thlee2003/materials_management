@@ -5,15 +5,16 @@ import styles from './Table.module.css';
 
 const Table = ({ data, height, column }) => {
   let hotData = [];
-  if (data && data.length > 0) {
+  // console.log('data:', data);
+  if (data) {
     data.map((a) => hotData.push(a));
-    console.log(hotData);
   } else {
-    hotData = Handsontable.helper.createSpreadsheetData(1, 10);
+    hotData = Handsontable.helper.createSpreadsheetData(1, column.length);
   }
   return (
     <div className={styles.div}>
       <HotTable
+        className="htCenter"
         data={hotData}
         colHeaders={column}
         rowHeaders={true}
@@ -21,6 +22,7 @@ const Table = ({ data, height, column }) => {
         height={height}
         licenseKey="non-commercial-and-evaluation"
         stretchH="all"
+        // readOnly
       />
     </div>
   );
