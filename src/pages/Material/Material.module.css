@@ -17,17 +17,17 @@
   align-items: center;
 }
 
-.top button {
-  width: 7%;
-  height: 50px;
-  font-size: 20px;
-  margin-right: 20px;
-}
-
 .h1 {
   margin-left: 20px;
 }
 
 .table {
   height: 76vh;
+}
+
+.button button {
+  width: 130px;
+  margin-right: 20px;
+  height: 50px;
+  font-size: 20px;
 }

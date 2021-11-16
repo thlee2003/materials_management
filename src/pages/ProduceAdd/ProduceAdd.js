@@ -3,7 +3,6 @@ import styles from './ProduceAdd.module.css';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import '../../react-datepicker.css';
 import { ko } from 'date-fns/esm/locale';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
@@ -22,6 +21,10 @@ const ProduceAdd = () => {
     {
       to: '/ProduceList',
       name: '제품 목록',
+    },
+    {
+      to: '/AddQuantity',
+      name: '수량 추가',
     },
     {
       to: '/ProduceAdd',

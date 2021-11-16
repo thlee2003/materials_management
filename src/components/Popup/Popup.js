@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Popup.module.css';
 
 import { HotTable } from '@handsontable/react';
 import Handsontable from 'handsontable';
 
 const Popup = ({ showPopup }) => {
-  const [colum, setColum] = useState(1);
-  const hotData = Handsontable.helper.createSpreadsheetData(colum, 10);
+  const column = ['a', '코드', '분류', '품목명', '수량', '단가', '총금액', '날짜'];
+  const hotData = Handsontable.helper.createSpreadsheetData(60, column.length);
   const onclick = () => {
     showPopup();
   };
   const add = () => {
     showPopup(hotData);
-  };
-  const addColum = () => {
-    setColum(colum + 1);
   };
   return (
     <div className={styles.div}>
@@ -25,7 +22,7 @@ const Popup = ({ showPopup }) => {
       <div className={styles.table}>
         <HotTable
           data={hotData}
-          colHeaders={true}
+          colHeaders={column}
           rowHeaders={true}
           width="100%"
           height="600"
@@ -34,7 +31,6 @@ const Popup = ({ showPopup }) => {
         />
       </div>
       <button onClick={add}>추가</button>
-      <button onClick={addColum}>행 추가</button>
     </div>
   );
 };

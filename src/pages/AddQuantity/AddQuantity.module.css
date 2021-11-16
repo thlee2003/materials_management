@@ -1,0 +1,58 @@
+.header {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 20px;
+  /* border: 1px solid red; */
+  width: 97.5%;
+}
+
+.div {
+  border: 1px solid black;
+  width: 91%;
+  margin-left: 20px;
+}
+
+.h1 {
+  margin-left: 20px;
+}
+
+.datalist {
+  margin-left: 20px;
+}
+
+.datalist label {
+  font-size: 20px;
+}
+
+.datalist input {
+  margin-left: 20px;
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.addQuantity {
+  margin-left: 20px;
+}
+
+.addQuantity label {
+  font-size: 20px;
+}
+
+.addQuantity input {
+  margin-left: 20px;
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.addQuantity button {
+  margin-top: 50px;
+  width: 150px;
+  height: 70px;
+  font-size: 30px;
+}
+
+.input {
+  margin-top: 20px;
+}

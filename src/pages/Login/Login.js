@@ -16,19 +16,21 @@ const Login = () => {
   //   })
   // }, []);
 
-
   const onsubmit = (e) => {
-    e.preventDefault();  
-    axios.post("http://localhost:5000/login", {
-      userName: name,
-      userEmail: email
-    }).then((response) => {
-      if(response.data.data === 'true') {
-        window.location.replace('/Main');
-      } else {
-        alert("로그인에 실패하였습니다.")
-      }
-    })
+    e.preventDefault();
+    axios
+      .post('http://localhost:5000/login', {
+        userName: name,
+        userEmail: email,
+      })
+      .then((response) => {
+        if (response.data.data === 'true') {
+          window.location.replace('/Main');
+        } else {
+          alert('로그인에 실패하였습니다.');
+        }
+      });
+    // window.location.replace('/Main');
   };
   return (
     <div>
