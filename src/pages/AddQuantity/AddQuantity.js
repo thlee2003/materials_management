@@ -30,8 +30,8 @@ const AddQuantity = () => {
         <h1 className={styles.h1}>수량 추가</h1>
         <div className={styles.datalist}>
           <h2>제품 선택</h2>
-          <label for="numbers">제품명</label>
-          <input type="text" list="list" id="numbers" value={datalist} onChange={(e) => setDatalist(e.target.value)} />
+          <label for="quantity">제품명</label>
+          <input type="text" list="list" id="quantity" value={datalist} onChange={(e) => setDatalist(e.target.value)} />
           <datalist id="list">
             {data.produce.map((a) => {
               if (a[2] === datalist) {

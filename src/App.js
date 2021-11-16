@@ -15,6 +15,8 @@ import AddQuantity from './pages/AddQuantity/AddQuantity';
 import SaleList from './pages/SaleList/SaleList';
 import SaleAdd from './pages/SaleAdd/SaleAdd';
 import AS from './pages/AS/AS';
+import AddAS from './pages/AddAS/AddAS';
+import AddASMTL from './pages/AddASMTL/AddASMTL';
 
 import Logo from './components/Logo/Logo';
 import Menu from './components/Menu/Menu';
@@ -69,6 +71,12 @@ function App() {
             </Route>
             <Route exact path="/AS">
               <AS />
+            </Route>
+            <Route exact path="/AddAS">
+              <AddAS />
+            </Route>
+            <Route exact path="/AddASMTL">
+              <AddASMTL />
             </Route>
           </div>
         </Switch>

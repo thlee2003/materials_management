@@ -15,6 +15,14 @@ const AS = () => {
       to: '/AS',
       name: 'AS',
     },
+    {
+      to: '/AddAS',
+      name: 'AS 등록',
+    },
+    {
+      to: '/AddASMTL',
+      name: 'AS 자재 추가',
+    },
   ];
   let hotData = [];
   if (data) {

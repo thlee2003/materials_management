@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 20px;
+  /* border: 1px solid red; */
+  width: 97.5%;
+}
+
+.contents {
+  width: 91%;
+  margin-left: 20px;
+  border: 1px solid black;
+}
+
+.h1 {
+  margin-left: 20px;
+}
+
+.datalist {
+  margin-left: 20px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.datalist label {
+  font-size: 20px;
+}
+
+.datalist input {
+  margin-left: 20px;
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.button {
+  float: right;
+  width: 7%;
+  height: 50px;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
