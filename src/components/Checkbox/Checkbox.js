@@ -16,9 +16,6 @@ const Checkbox = ({ check }) => {
       },
       console.log(!checked[`check${index}`])
     );
-    if (checked.check0 == false) {
-      console.log('a');
-    }
   };
   return (
     <div className={styles.div}>

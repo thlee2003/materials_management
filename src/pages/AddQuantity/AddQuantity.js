@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './AddQuantity.module.css';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
@@ -34,7 +34,7 @@ const AddQuantity = () => {
           <input type="text" list="list" id="numbers" value={datalist} onChange={(e) => setDatalist(e.target.value)} />
           <datalist id="list">
             {data.produce.map((a) => {
-              if (a[2] == datalist) {
+              if (a[2] === datalist) {
                 q = a[3];
               }
               return <option value={a[2]} />;
