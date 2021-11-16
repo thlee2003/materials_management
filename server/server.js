@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const port = 5000;
+const api = require('./routers/index')
 const mysql = require('mysql');
 
 app.use(bodyParser.urlencoded({ extended: false }));
