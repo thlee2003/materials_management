@@ -62,7 +62,7 @@ app.post('/material', (req, res) => {
         }
     }
     console.log(str)
-    const sqlQuery = 'INSERT INTO material (material_code,classification,item_name,quantity,unit_price,total_amount,update_date,writer) VALUES ' + str;
+    const sqlQuery = 'INSERT INTO material (material_code,classification,item_name,quantity,unit_price,total_amount,update_date,writer) VALUES ' + str ;
     db.query(sqlQuery, array, (err, results) => {
         if(err) {
             console.log(err);
@@ -71,6 +71,13 @@ app.post('/material', (req, res) => {
             console.log("등록 완료~!")
         }
     });
+})
+
+app.get('/material/data', (req, res) => {
+  const sqlQuery = 'SELECT * FROM material';
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  })
 })
 
 app.listen(port, () => {
