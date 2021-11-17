@@ -39,20 +39,19 @@ const AddASMTL = () => {
       <Sidebar links={links} />
       <div className={styles.contents}>
         {bool ? <Popup showPopup={showPopup} /> : null}
-
         <h1 className={styles.h1}>AS 등록</h1>
         <h2 className={styles.h1}>선택</h2>
         <div className={styles.datalist}>
           <div>
-            <label for="customer">제품명</label>
+            <label for="customer">구매자 연락처</label>
             <input type="text" list="list" id="customer" value={customer || ''} onChange={(e) => setCustomer(e.target.value)} />
             <datalist id="list">
               {date.AS.map((a) => {
-                if (a[6] === customer) {
+                if (a[8] === customer) {
                   arr = a;
                   arr.pop();
                 }
-                return <option value={a[6]} />;
+                return <option value={a[8]} />;
               })}
             </datalist>
           </div>

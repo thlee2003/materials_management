@@ -11,6 +11,9 @@ const Material = () => {
   const addCell = () => {
     setA(a + 1);
   };
+  const add = () => {
+    console.log(hotData);
+  };
   return (
     <div className={styles.header}>
       <div className={styles.div}>
@@ -18,7 +21,7 @@ const Material = () => {
           <h1 className={styles.h1}>자재 등록</h1>
           <div className={styles.button}>
             <button onClick={addCell}>행 추가</button>
-            <button>등록</button>
+            <button onClick={add}>등록</button>
           </div>
         </div>
         <div className={styles.table}>

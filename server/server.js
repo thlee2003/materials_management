@@ -12,8 +12,8 @@ app.use(bodyParser.json());
 app.use('/api', api);
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
+  host: 'test-db1.ciazix1kercl.ap-northeast-2.rds.amazonaws.com',
+  user: 'admin',
   password: 'jeff0520',
   database: 'management',
 });
@@ -29,7 +29,7 @@ app.post('/login', (req, res) => {
 
   let sendData;
   if (userName && userEmail) {
-    const sqlQuery = 'SELECT * FROM login WHERE user_name = ? AND user_id = ?';
+    const sqlQuery = 'SELECT * FROM admin_login WHERE user_name = ? AND user_id = ?';
     db.query(sqlQuery, [userName, userEmail], (err, results, fields) => {
       if (!err && results <= 0) {
         console.log('로그인에 실패하였습니다.');

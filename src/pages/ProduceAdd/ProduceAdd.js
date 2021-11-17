@@ -31,9 +31,9 @@ const ProduceAdd = () => {
       name: '제품 등록',
     },
   ];
-  const showPopup = (hotData) => {
+  const showPopup = (date) => {
     setBool(!bool);
-    setData(hotData);
+    setData(date);
   };
   return (
     <div className={styles.header}>
@@ -76,7 +76,7 @@ const ProduceAdd = () => {
               <h2>자재 목록</h2>
               <button onClick={showPopup}>추가</button>
             </div>
-            {bool ? null : <Table data={data} height={495} column={column} />}
+            {bool ? null : <Table data={data} height={400} column={column} />}
           </div>
         </div>
       </div>

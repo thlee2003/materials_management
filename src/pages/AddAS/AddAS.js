@@ -33,15 +33,15 @@ const AddAS = () => {
         <h2 className={styles.h1}>선택</h2>
         <div className={styles.datalist}>
           <div>
-            <label for="customer">제품명</label>
+            <label for="customer">구매자 연락처</label>
             <input type="text" list="list" id="customer" value={customer || ''} onChange={(e) => setCustomer(e.target.value)} />
             <datalist id="list">
               {data.sale.map((a) => {
-                if (a[7] === customer) {
+                if (a[9] === customer) {
                   arr = a;
                   arr.pop();
                 }
-                return <option value={a[7]} />;
+                return <option value={a[9]} />;
               })}
             </datalist>
           </div>
