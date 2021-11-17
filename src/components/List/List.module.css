@@ -18,13 +18,20 @@
   /* border: 1px solid red; */
 }
 
-.list label {
-  width: 90px;
-  cursor: pointer;
+.name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.list span {
-  font-size: 15px;
+.name label {
+  width: 90px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.name span {
+  font-size: 20px;
   margin-right: 5px;
   cursor: pointer;
 }

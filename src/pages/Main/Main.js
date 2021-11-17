@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import styles from './Main.module.css';
 
+import { HotTable } from '@handsontable/react';
+import Handsontable from 'handsontable';
+
 import Search from '../../components/Search/Search';
 import Checkbox from '../../components/Checkbox/Checkbox';
-import Table from '../../components/Table/Table';
 
 import data from '../../data.json';
 import axios from 'axios';
@@ -11,14 +13,12 @@ import axios from 'axios';
 const Main = () => {
   const column = ['코드', '분류', '품목명', '수량', '단가', '총금액', '날짜', '작성자'];
   const check = ['PART', 'PBA', '반제품', '완제품'];
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/material/data').then((response)=>{
-      console.log(response);
-    })
-  }, []);
-
-
+  let hotData = [];
+  if (data) {
+    data.main.map((a) => hotData.push(a));
+  } else {
+    hotData = Handsontable.helper.createSpreadsheetData(1, column.length);
+  }
   return (
     <div className="main">
       <div className={styles.header}>
@@ -26,7 +26,27 @@ const Main = () => {
         <Checkbox check={check} />
       </div>
       <div className={styles.content}>
-        <Table height={760} column={column} data={data.main} />
+        <HotTable
+          className="htCenter"
+          data={hotData}
+          colHeaders={column}
+          rowHeaders={true}
+          width="100%"
+          height="760"
+          licenseKey="non-commercial-and-evaluation"
+          stretchH="all"
+          readOnly
+          columns={[
+            {},
+            {},
+            {},
+            { type: 'numeric', numericFormat: { pattern: '0,0' } },
+            { type: 'numeric', numericFormat: { pattern: '0,0' } },
+            { type: 'numeric', numericFormat: { pattern: '0,0' } },
+            {},
+            {},
+          ]}
+        />
       </div>
     </div>
   );
