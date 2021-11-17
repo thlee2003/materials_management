@@ -29,7 +29,7 @@ app.post('/login', (req, res) => {
   if (userName && userEmail) {
     const sqlQuery = 'SELECT * FROM admin_login WHERE user_name = ? AND user_id = ?';
     db.query(sqlQuery, [userName, userEmail], (err, results, fields) => {
-      if (!err && results <= 0) {
+      if (results <= 0) {
         console.log('로그인에 실패하였습니다.');
         sendData = {
           data: 'false',
@@ -51,27 +51,27 @@ app.post('/login', (req, res) => {
 });
 
 app.post('/material', (req, res) => {
-    const array = req.body.array;
-    const length = req.body.abc
-    
-    let str = ''
-    for(let i = 1; i <= length; i++) {
-        str+='(?)'
-        if (i != length) {
-            str += ','
-        }
+  const array = req.body.array;
+  const length = req.body.abc;
+
+  let str = '';
+  for (let i = 1; i <= length; i++) {
+    str += '(?)';
+    if (i != length) {
+      str += ',';
     }
-    console.log(str)
-    const sqlQuery = 'INSERT INTO material (material_code,classification,item_name,quantity,unit_price,total_amount,update_date,writer) VALUES ' + str;
-    db.query(sqlQuery, array, (err, results) => {
-        if(err) {
-            console.log(err);
-        }
-        else {
-            console.log("등록 완료~!")
-        }
-    });
-})
+  }
+  console.log(str);
+  const sqlQuery =
+    'INSERT INTO material (material_code,classification,item_name,quantity,unit_price,total_amount,update_date,writer) VALUES ' + str;
+  db.query(sqlQuery, array, (err, results) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('등록 완료~!');
+    }
+  });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

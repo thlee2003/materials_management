@@ -19,7 +19,7 @@ const Popup = ({ showPopup }) => {
         date.push(o);
       }
     });
-    date.map((o) => {
+    date.forEach((o) => {
       delete o['0'];
     });
     if (date.length === 0) {
