@@ -4,12 +4,10 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const port = 5000;
 const mysql = require('mysql');
-const api = require('./routers/index');
 
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-app.use(bodyParser.json());
-app.use('/api', api);
 
 const db = mysql.createConnection({
   host: 'test-db1.ciazix1kercl.ap-northeast-2.rds.amazonaws.com',
@@ -51,6 +49,29 @@ app.post('/login', (req, res) => {
   //     res.send('success!');
   // });
 });
+
+app.post('/material', (req, res) => {
+    const array = req.body.array;
+    const length = req.body.abc
+    
+    let str = ''
+    for(let i = 1; i <= length; i++) {
+        str+='(?)'
+        if (i != length) {
+            str += ','
+        }
+    }
+    console.log(str)
+    const sqlQuery = 'INSERT INTO material (material_code,classification,item_name,quantity,unit_price,total_amount,update_date,writer) VALUES ' + str;
+    db.query(sqlQuery, array, (err, results) => {
+        if(err) {
+            console.log(err);
+        }
+        else {
+            console.log("등록 완료~!")
+        }
+    });
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
