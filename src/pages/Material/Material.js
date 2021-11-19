@@ -9,11 +9,20 @@ const Material = () => {
   const column = ['코드', '분류', '품목명', ' 수량', '단가', '총금액', '날짜', '작성자'];
   const [a, setA] = useState(1);
   const [bool, setBool] = useState(true);
+  var today = new Date();
+  var year = today.getFullYear();
+  var month = today.getMonth() + 1;
+  var day = today.getDate();
   const hotData = Handsontable.helper.createSpreadsheetData(a, column.length);
+  hotData.forEach((a) => {
+    a[6] = `${year}-${month}-${day}`;
+    a[7] = '구건우';
+  });
   const addCell = () => {
     setA(a + 1);
   };
 
+  console.log(hotData.length);
   const addDB = () => {
     for (let i = 0; i < hotData.length; i++) {
       if (
@@ -22,9 +31,7 @@ const Material = () => {
         hotData[i].indexOf(`C${i + 1}`) !== -1 ||
         hotData[i].indexOf(`D${i + 1}`) !== -1 ||
         hotData[i].indexOf(`E${i + 1}`) !== -1 ||
-        hotData[i].indexOf(`F${i + 1}`) !== -1 ||
-        hotData[i].indexOf(`G${i + 1}`) !== -1 ||
-        hotData[i].indexOf(`H${i + 1}`) !== -1
+        hotData[i].indexOf(`F${i + 1}`) !== -1
       ) {
         setBool(false);
         break;
@@ -32,18 +39,19 @@ const Material = () => {
         setBool(true);
       }
     }
-    if (bool === true) {
-      axios
-        .post('http://localhost:5000/material/info', {
-          abc: hotData.length,
-          array: hotData,
-        })
-        .then(() => {
-          alert('등록 완료!');
-        });
-    } else {
-      alert('정보를 입력하세요');
-    }
+    console.log(bool);
+    // if (bool === true) {
+    //   axios
+    //     .post('http://localhost:5000/material/info', {
+    //       abc: hotData.length,
+    //       array: hotData,
+    //     })
+    //     .then(() => {
+    //       alert('등록 완료!');
+    //     });
+    // } else {
+    //   alert('정보를 입력하세요');
+    // }
   };
   return (
     <div className={styles.header}>

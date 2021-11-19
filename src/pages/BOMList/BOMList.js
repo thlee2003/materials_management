@@ -7,6 +7,7 @@ import List from '../../components/List/List';
 import data from '../../data.json';
 
 const BOMList = () => {
+  let a = '1';
   const links = [
     {
       to: '/BOMList',
