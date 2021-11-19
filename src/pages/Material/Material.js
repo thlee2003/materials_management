@@ -34,7 +34,7 @@ const Material = () => {
     }
     if (bool === true) {
       axios
-        .post('http://localhost:5000/material', {
+        .post('http://localhost:5000/material/info', {
           abc: hotData.length,
           array: hotData,
         })
