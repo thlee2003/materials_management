@@ -1,6 +1,7 @@
 import axios from 'axios';
 // import { response } from 'express';
 import React, { useState } from 'react';
+
 import styles from './Login.module.css';
 
 const Login = () => {
@@ -24,7 +25,10 @@ const Login = () => {
         userEmail: email,
       })
       .then((response) => {
-        if (response.data.data === 'true') {
+        if (response.data.data1 === 'true') {
+          const user = response.data.data3
+          console.log(user)
+          localStorage.setItem(user, JSON.stringify(user));
           window.location.replace('/Main');
         } else {
           alert('로그인에 실패하였습니다.');
