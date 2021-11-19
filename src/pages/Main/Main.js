@@ -27,10 +27,10 @@ const Main = () => {
 
   useEffect(() => {
     axios.get('http://localhost:5000/material/data').then((response) => {
-    console.log(response.data)  
-    setTable(response.data);
-    })
-  },[])
+      console.log(response.data);
+      setTable(response.data);
+    });
+  }, []);
 
   return (
     <div className="main">
@@ -50,14 +50,14 @@ const Main = () => {
           stretchH="all"
           readOnly
           columns={[
-            {data: 'material_code'},
-            {data: 'classification'},
-            {data: 'item_name'},
-            { data: 'quantity' ,type: 'numeric', numericFormat: { pattern: '0,0' } },
-            { data: 'unit_price' ,type: 'numeric', numericFormat: { pattern: '0,0' } },
-            { data: 'total_amount' ,type: 'numeric', numericFormat: { pattern: '0,0' } },
-            {data: 'update_date'},
-            {data: 'writer'},
+            { data: 'material_code' },
+            { data: 'classification' },
+            { data: 'item_name' },
+            { data: 'quantity', type: 'numeric', numericFormat: { pattern: '0,0' } },
+            { data: 'unit_price', type: 'numeric', numericFormat: { pattern: '0,0' } },
+            { data: 'total_amount', type: 'numeric', numericFormat: { pattern: '0,0' } },
+            { data: 'update_date' },
+            { data: 'writer' },
           ]}
         />
       </div>

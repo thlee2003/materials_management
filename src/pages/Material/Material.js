@@ -65,10 +65,16 @@ const Material = () => {
             height="735"
             licenseKey="non-commercial-and-evaluation"
             stretchH="all"
-            // // readOnly
-            // columns={[
-            //   {},{},{},{type: 'numeric'},{type: 'numeric'},{type: 'numeric'},{type: 'numeric'},{}
-            // ]}
+            columns={[
+              {},
+              {},
+              {},
+              { type: 'numeric', numericFormat: { pattern: '0,0' } },
+              { type: 'numeric', numericFormat: { pattern: '0,0' } },
+              { type: 'numeric', numericFormat: { pattern: '0,0' } },
+              {},
+              {},
+            ]}
           />
         </div>
       </div>
