@@ -19,7 +19,7 @@ const Login = () => {
   const onsubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:5000/login', {
+      .post('http://localhost:5000/login/AdminLogin', {
         userName: name,
         userEmail: email,
       })

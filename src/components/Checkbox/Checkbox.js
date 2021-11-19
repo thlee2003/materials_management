@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Checkbox.module.css';
 
-const Checkbox = ({ check }) => {
+const Checkbox = ({ check, checkValue }) => {
   const [checked, setChecked] = useState({
     check0: true,
     check1: true,
@@ -14,7 +14,8 @@ const Checkbox = ({ check }) => {
         ...checked,
         [`check${index}`]: !checked[`check${index}`],
       },
-      console.log(!checked[`check${index}`])
+      console.log(checked),
+      checkValue(checked)
     );
   };
   return (

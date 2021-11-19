@@ -21,6 +21,10 @@ const Main = () => {
     hotData = Handsontable.helper.createSpreadsheetData(1, column.length);
   }
 
+  const checkValue = (checked) => {
+    console.log(checked)
+  }
+
   useEffect(() => {
     axios.get('http://localhost:5000/material/data').then((response) => {
       console.log(response.data);
@@ -32,7 +36,7 @@ const Main = () => {
     <div className="main">
       <div className={styles.header}>
         <Search />
-        <Checkbox check={check} />
+        <Checkbox check={check} checkValue={checkValue} />
       </div>
       <div className={styles.content}>
         <HotTable
