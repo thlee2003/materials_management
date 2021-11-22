@@ -25,10 +25,7 @@ const Login = () => {
         userEmail: email,
       })
       .then((response) => {
-        if (response.data.data1 === 'true') {
-          const user = response.data.data3
-          console.log(user)
-          localStorage.setItem(user, JSON.stringify(user));
+        if (response.data.data === 'true') {
           window.location.replace('/Main');
         } else {
           alert('로그인에 실패하였습니다.');

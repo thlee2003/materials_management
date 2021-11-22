@@ -2,33 +2,103 @@ import React, { useEffect, useState } from 'react';
 import styles from './Main.module.css';
 
 import { HotTable } from '@handsontable/react';
-import Handsontable from 'handsontable';
 
 import Search from '../../components/Search/Search';
 import Checkbox from '../../components/Checkbox/Checkbox';
 
-import data from '../../data.json';
 import axios from 'axios';
 
 const Main = () => {
   const column = ['코드', '분류', '품목명', '수량', '단가', '총금액', '날짜', '작성자'];
   const check = ['PART', 'PBA', '반제품', '완제품'];
   const [table, setTable] = useState([]);
-  let hotData = [];
-  if (data) {
-    data.main.map((a) => hotData.push(a));
-  } else {
-    hotData = Handsontable.helper.createSpreadsheetData(1, column.length);
-  }
+  const [table2, setTable2] = useState([]);
+  let a;
 
   const checkValue = (checked) => {
-    console.log(checked)
-  }
+    if (checked.check0 === false) {
+      a = table.filter((data) => data.material_code[0] !== 'C');
+      setTable(a);
+    }
+    if (checked.check1 === false) {
+      a = table.filter((data) => data.material_code[0] !== 'P');
+      setTable(a);
+    }
+    if (checked.check2 === false) {
+      a = table.filter((data) => data.material_code[0] !== 'B');
+      setTable(a);
+    }
+    if (checked.check3 === false) {
+      a = table.filter((data) => data.material_code[0] !== 'F');
+      setTable(a);
+    }
+    // 1
+    if (checked.check0 === true && checked.check1 === false && checked.check2 === false && checked.check3 === false) {
+      a = table2.filter((data) => data.material_code[0] === 'C');
+      setTable(a);
+    } else if (checked.check0 === false && checked.check1 === true && checked.check2 === false && checked.check3 === false) {
+      a = table2.filter((data) => data.material_code[0] === 'P');
+      setTable(a);
+    } else if (checked.check0 === false && checked.check1 === false && checked.check2 === true && checked.check3 === false) {
+      a = table2.filter((data) => data.material_code[0] === 'B');
+      setTable(a);
+    } else if (checked.check0 === false && checked.check1 === false && checked.check2 === false && checked.check3 === true) {
+      a = table2.filter((data) => data.material_code[0] === 'F');
+      setTable(a);
+    }
+    // 2 - 1
+    if (checked.check0 === true && checked.check1 === true && checked.check2 === false && checked.check3 === false) {
+      a = table2.filter((data) => data.material_code[0] === 'C' || data.material_code[0] === 'P');
+      setTable(a);
+    } else if (checked.check0 === true && checked.check1 === false && checked.check2 === true && checked.check3 === false) {
+      a = table2.filter((data) => data.material_code[0] === 'C' || data.material_code[0] === 'B');
+      setTable(a);
+    } else if (checked.check0 === true && checked.check1 === false && checked.check2 === false && checked.check3 === true) {
+      a = table2.filter((data) => data.material_code[0] === 'C' || data.material_code[0] === 'F');
+      setTable(a);
+    }
+    // 2 - 2
+    if (checked.check0 === false && checked.check1 === true && checked.check2 === true && checked.check3 === false) {
+      a = table2.filter((data) => data.material_code[0] === 'P' || data.material_code[0] === 'B');
+      setTable(a);
+    } else if (checked.check0 === false && checked.check1 === true && checked.check2 === false && checked.check3 === true) {
+      a = table2.filter((data) => data.material_code[0] === 'P' || data.material_code[0] === 'F');
+      setTable(a);
+    }
+    // 2 - 3
+    if (checked.check0 === false && checked.check1 === false && checked.check2 === true && checked.check3 === true) {
+      a = table2.filter((data) => data.material_code[0] === 'B' || data.material_code[0] === 'F');
+      setTable(a);
+    }
+    // 3
+    if (checked.check0 === true && checked.check1 === true && checked.check2 === true && checked.check3 === false) {
+      a = table2.filter((data) => data.material_code[0] === 'C' || data.material_code[0] === 'P' || data.material_code[0] === 'B');
+      setTable(a);
+    } else if (checked.check0 === true && checked.check1 === true && checked.check2 === false && checked.check3 === true) {
+      a = table2.filter((data) => data.material_code[0] === 'C' || data.material_code[0] === 'P' || data.material_code[0] === 'F');
+      setTable(a);
+    } else if (checked.check0 === true && checked.check1 === false && checked.check2 === true && checked.check3 === true) {
+      a = table2.filter((data) => data.material_code[0] === 'C' || data.material_code[0] === 'B' || data.material_code[0] === 'F');
+      setTable(a);
+    } else if (checked.check0 === false && checked.check1 === true && checked.check2 === true && checked.check3 === true) {
+      a = table2.filter((data) => data.material_code[0] === 'P' || data.material_code[0] === 'B' || data.material_code[0] === 'F');
+      setTable(a);
+    }
+    // 4
+    if (checked.check0 === true && checked.check1 === true && checked.check2 === true && checked.check3 === true) {
+      a = table2.filter(
+        (data) =>
+          data.material_code[0] === 'C' || data.material_code[0] === 'P' || data.material_code[0] === 'B' || data.material_code[0] === 'F'
+      );
+      setTable(a);
+    }
+  };
 
   useEffect(() => {
     axios.get('http://localhost:5000/material/data').then((response) => {
       console.log(response.data);
       setTable(response.data);
+      setTable2(response.data);
     });
   }, []);
 

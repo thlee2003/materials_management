@@ -1,11 +1,9 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Profile.module.css';
 
 const Profile = () => {
-
-  let a = String
-  let b = String
+  let a = String;
+  let b = String;
 
   return (
     <div className={styles.profile}>

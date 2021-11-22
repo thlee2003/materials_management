@@ -8,21 +8,19 @@ const Checkbox = ({ check, checkValue }) => {
     check2: true,
     check3: true,
   });
-  const handleSingleCheck = (index) => {
-    setChecked(
-      {
-        ...checked,
-        [`check${index}`]: !checked[`check${index}`],
-      },
-      console.log(checked),
-      checkValue(checked)
-    );
+  const handleSingleCheck = (e, index) => {
+    setChecked({
+      ...checked,
+      [`check${index}`]: !checked[`check${index}`],
+    });
+    checked[`check${index}`] = e.target.checked;
+    checkValue(checked);
   };
   return (
     <div className={styles.div}>
       {check.map((check, index) => (
         <div className={styles.checkbox}>
-          <input type="checkbox" checked={checked[`check${index}`]} onClick={(e) => handleSingleCheck(index)} />
+          <input type="checkbox" checked={checked[`check${index}`]} onClick={(e) => handleSingleCheck(e, index)} />
           <label>{check}</label>
         </div>
       ))}
