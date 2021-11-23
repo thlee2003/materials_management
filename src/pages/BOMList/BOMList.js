@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './BOMList.module.css';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
-import List from '../../components/List/List';
+// import List from '../../components/List/List';
 
 import axios from 'axios';
 
 const BOMList = () => {
-  const [name, setName] = useState([]);
+  // const [name, setName] = useState([]);
 
   const links = [
     {
