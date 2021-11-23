@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ProjectList.module.css';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
-import List from '../../components/List/List';
+import PJList from '../../components/PJList/PJList';
 
 import data from '../../data.json';
 
@@ -24,7 +24,7 @@ const ProjectList = () => {
         <div className={styles.content}>
           <h1>프로젝트 목록</h1>
           {data.project.map((a) => (
-            <List name={a.name} data={a.data} />
+            <PJList name={a.name} data={a.data} />
           ))}
         </div>
       </div>

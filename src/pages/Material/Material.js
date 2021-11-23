@@ -3,12 +3,10 @@ import styles from './Material.module.css';
 import { HotTable } from '@handsontable/react';
 import Handsontable from 'handsontable';
 import axios from 'axios';
-import e from 'cors';
 
 const Material = () => {
   const column = ['코드', '분류', '품목명', ' 수량', '단가', '총금액', '날짜', '작성자'];
   const [a, setA] = useState(1);
-  const [bool, setBool] = useState(true);
   var today = new Date();
   var year = today.getFullYear();
   var month = today.getMonth() + 1;
@@ -21,26 +19,8 @@ const Material = () => {
   const addCell = () => {
     setA(a + 1);
   };
-
-  console.log(hotData.length);
   const addDB = () => {
-    for (let i = 0; i < hotData.length; i++) {
-      if (
-        hotData[i].indexOf(`A${i + 1}`) !== -1 ||
-        hotData[i].indexOf(`B${i + 1}`) !== -1 ||
-        hotData[i].indexOf(`C${i + 1}`) !== -1 ||
-        hotData[i].indexOf(`D${i + 1}`) !== -1 ||
-        hotData[i].indexOf(`E${i + 1}`) !== -1 ||
-        hotData[i].indexOf(`F${i + 1}`) !== -1
-      ) {
-        setBool(false);
-        break;
-      } else {
-        setBool(true);
-      }
-    }
-    console.log(bool);
-    if (bool === true) {
+    
       axios
         .post('http://localhost:5000/material/info', {
           abc: hotData.length,
@@ -49,10 +29,7 @@ const Material = () => {
         .then(() => {
           alert('등록 완료!');
         });
-    } else {
-      alert('정보를 입력하세요');
-    }
-  };
+    } 
   return (
     <div className={styles.header}>
       <div className={styles.div}>

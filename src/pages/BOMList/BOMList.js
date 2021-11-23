@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './BOMList.module.css';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
-import List from '../../components/List/List';
+// import List from '../../components/List/List';
 
-import data from '../../data.json';
 import axios from 'axios';
 
 const BOMList = () => {
-
-  const [name, setName] = useState([]);
+  // const [name, setName] = useState([]);
 
   const links = [
     {
@@ -25,9 +23,9 @@ const BOMList = () => {
   useEffect(() => {
     axios.get('http://localhost:5000/bom/BomData').then((response) => {
       console.log(response.data);
-    })
-  })
-  
+    });
+  });
+
   return (
     <div className={styles.header}>
       <Sidebar links={links} />

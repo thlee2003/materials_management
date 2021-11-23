@@ -1,0 +1,37 @@
+.container {
+  height: 0;
+  opacity: 0;
+  display: flex;
+  overflow: hidden;
+  transition: all 600ms ease-in-out;
+}
+
+.container.show {
+  height: 180px;
+  opacity: 1;
+}
+
+.list {
+  margin-top: 20px;
+  cursor: pointer;
+  margin-left: 5px;
+  /* border: 1px solid red; */
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.name label {
+  width: 90px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.name span {
+  font-size: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}

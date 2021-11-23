@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Profile.module.css';
 
 const Profile = ({ userName }) => {
-  let a = String;
   let b = String;
 
   return (
