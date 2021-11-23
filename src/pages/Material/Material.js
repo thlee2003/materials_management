@@ -40,18 +40,18 @@ const Material = () => {
       }
     }
     console.log(bool);
-    // if (bool === true) {
-    //   axios
-    //     .post('http://localhost:5000/material/info', {
-    //       abc: hotData.length,
-    //       array: hotData,
-    //     })
-    //     .then(() => {
-    //       alert('등록 완료!');
-    //     });
-    // } else {
-    //   alert('정보를 입력하세요');
-    // }
+    if (bool === true) {
+      axios
+        .post('http://localhost:5000/material/info', {
+          abc: hotData.length,
+          array: hotData,
+        })
+        .then(() => {
+          alert('등록 완료!');
+        });
+    } else {
+      alert('정보를 입력하세요');
+    }
   };
   return (
     <div className={styles.header}>
