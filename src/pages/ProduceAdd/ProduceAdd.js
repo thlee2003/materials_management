@@ -35,6 +35,9 @@ const ProduceAdd = () => {
     setBool(!bool);
     setData(date);
   };
+  const onclick = () => {
+    setName('');
+  };
   return (
     <div className={styles.header}>
       <Sidebar links={links} />
@@ -42,7 +45,7 @@ const ProduceAdd = () => {
         {bool ? <Popup showPopup={showPopup} /> : null}
         <div className={styles.top}>
           <h1 className={styles.h1}>제품 등록</h1>
-          <button>등록</button>
+          <button onClick={onclick}>등록</button>
         </div>
         <div className={styles.contents}>
           <div className={styles.info}>

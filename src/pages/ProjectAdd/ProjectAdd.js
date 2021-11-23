@@ -30,6 +30,9 @@ const ProjectAdd = () => {
     setBool(!bool);
     setData(hotData);
   };
+  const onclick = () => {
+    setName('');
+  };
   return (
     <div className={styles.header}>
       <Sidebar links={links} />
@@ -37,7 +40,7 @@ const ProjectAdd = () => {
         {bool ? <Popup showPopup={showPopup} /> : null}
         <div className={styles.top}>
           <h1>프로젝트 등록</h1>
-          <button>등록</button>
+          <button onClick={onclick}>등록</button>
         </div>
         <div className={styles.contents}>
           <div className={styles.info}>

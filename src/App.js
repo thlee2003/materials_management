@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -23,18 +23,19 @@ import Menu from './components/Menu/Menu';
 import Profile from './components/Profile/Profile';
 
 function App() {
+  const [userName, setUserName] = useState('');
   return (
     <BrowserRouter>
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <Login />
+            <Login setUserName={setUserName} />
           </Route>
           <div>
             <div className="header" style={{ justifyContent: 'space-between' }}>
               <Logo />
               <Menu />
-              <Profile />
+              <Profile userName={userName} />
             </div>
             <Route exact path="/Main">
               <Main />

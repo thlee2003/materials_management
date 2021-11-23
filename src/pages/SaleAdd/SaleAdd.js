@@ -17,6 +17,7 @@ const SaleAdd = () => {
   const [quantity, setQuantity] = useState('');
   const [select, setSelect] = useState('판매');
   const [price, setPrice] = useState('');
+  const [serial, setSerial] = useState('');
   const [startDate, setStartDate] = useState(new Date());
   const links = [
     {
@@ -29,7 +30,14 @@ const SaleAdd = () => {
     },
   ];
   const onclick = () => {
-    console.log(name, address, phone, email, prodName, quantity, select, price);
+    setName('');
+    setAddress('');
+    setPhone('');
+    setEmail('');
+    setProdName('');
+    setQuantity('');
+    setPrice('');
+    setSerial('');
   };
   return (
     <div className={styles.header}>
@@ -68,7 +76,7 @@ const SaleAdd = () => {
               <Input name={'가격'} input={price} setInput={setPrice} />
             </div>
             <div className={styles.one}>
-              <Input name={'시리얼코드'} />
+              <Input name={'시리얼코드'} input={serial} setInput={setSerial} />
               <div className={styles.date}>
                 <p>날짜</p>
                 <DatePicker

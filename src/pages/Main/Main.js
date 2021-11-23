@@ -14,7 +14,10 @@ const Main = () => {
   const [table, setTable] = useState([]);
   const [table2, setTable2] = useState([]);
   let a;
+  const [arr, setArr] = useState();
+  let firstInitial = ['C', 'P', 'B', 'F'];
 
+  // 체크박스
   const checkValue = (checked) => {
     if (checked.check0 === false) {
       a = table.filter((data) => data.material_code[0] !== 'C');
@@ -96,7 +99,6 @@ const Main = () => {
 
   useEffect(() => {
     axios.get('http://localhost:5000/material/data').then((response) => {
-      console.log(response.data);
       setTable(response.data);
       setTable2(response.data);
     });

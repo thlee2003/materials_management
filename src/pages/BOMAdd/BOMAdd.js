@@ -30,6 +30,9 @@ const BOMAdd = () => {
   const addLow = () => {
     setLow(low + 1);
   };
+  const onclick = () => {
+    setName('');
+  };
   return (
     <div className={styles.header}>
       <Sidebar links={links} />
