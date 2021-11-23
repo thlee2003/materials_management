@@ -41,7 +41,7 @@ function App() {
               <Main />
             </Route>
             <Route exact path="/Material">
-              <Material />
+              <Material userName={userName} />
             </Route>
             <Route exact path="/BOMList">
               <BOMList />

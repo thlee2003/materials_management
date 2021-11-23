@@ -86,3 +86,6 @@
   display: flex;
   justify-content: space-between;
 }
+.table {
+  height: 430px;
+}

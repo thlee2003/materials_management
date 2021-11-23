@@ -13,7 +13,7 @@ const AS = () => {
   const links = [
     {
       to: '/AS',
-      name: 'AS',
+      name: 'AS 목록',
     },
     {
       to: '/AddAS',
@@ -35,18 +35,33 @@ const AS = () => {
       <Sidebar links={links} />
       <div className={styles.list}>
         <h1 className={styles.h1}>AS 목록</h1>
-        <HotTable
-          className="htCenter"
-          data={hotData}
-          colHeaders={column}
-          rowHeaders={true}
-          width="100%"
-          height="730"
-          licenseKey="non-commercial-and-evaluation"
-          stretchH="all"
-          // readOnly
-          columns={[{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, { type: 'dropdown', source: ['AS 접수', '수리 중', '수리 완료'] }]}
-        />
+        <div className={styles.table}>
+          <HotTable
+            className="htCenter"
+            data={hotData}
+            colHeaders={column}
+            rowHeaders={true}
+            width="100%"
+            height="730"
+            licenseKey="non-commercial-and-evaluation"
+            stretchH="all"
+            // readOnly
+            columns={[
+              {},
+              {},
+              {},
+              {},
+              {},
+              { type: 'numeric', numericFormat: { pattern: ' 0,0' } },
+              {},
+              {},
+              {},
+              {},
+              {},
+              { type: 'dropdown', source: ['주문 접수', '포장 중', '포장 완료', '배송 완료'] },
+            ]}
+          />
+        </div>
       </div>
     </div>
   );

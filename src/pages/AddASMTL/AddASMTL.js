@@ -22,7 +22,7 @@ const AddASMTL = () => {
   const links = [
     {
       to: '/AS',
-      name: 'AS',
+      name: 'AS 목록',
     },
     {
       to: '/AddAS',

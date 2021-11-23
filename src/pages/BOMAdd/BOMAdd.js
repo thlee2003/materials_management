@@ -72,21 +72,23 @@ const BOMAdd = () => {
               </div>
             </div>
           </div>
-          <div className={styles.table}>
+          <div>
             <div className={styles.middle}>
               <h2>자재 목록</h2>
               <button onClick={addLow}>행 추가</button>
             </div>
-            <HotTable
-              className="htCenter"
-              data={hotData}
-              colHeaders={column}
-              rowHeaders={true}
-              width="100%"
-              height="500px"
-              licenseKey="non-commercial-and-evaluation"
-              stretchH="all"
-            />
+            <div className={styles.table}>
+              <HotTable
+                className="htCenter"
+                data={hotData}
+                colHeaders={column}
+                rowHeaders={true}
+                width="100%"
+                height="100%"
+                licenseKey="non-commercial-and-evaluation"
+                stretchH="all"
+              />
+            </div>
           </div>
         </div>
       </div>

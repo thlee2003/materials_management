@@ -79,7 +79,7 @@ const ProduceAdd = () => {
               {/* <Input name={'작성자'} input={writer} setInput={setWriter} /> */}
             </div>
           </div>
-          <div className={styles.table}>
+          <div>
             <div className={styles.middle}>
               <h2>자재 목록</h2>
               <button onClick={showPopup}>추가</button>
@@ -92,7 +92,7 @@ const ProduceAdd = () => {
                   colHeaders={column}
                   rowHeaders={true}
                   width="100%"
-                  height={400}
+                  height="100%"
                   licenseKey="non-commercial-and-evaluation"
                   stretchH="all"
                 />
