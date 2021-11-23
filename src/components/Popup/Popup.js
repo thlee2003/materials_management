@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Popup.module.css';
 
 import { HotTable } from '@handsontable/react';
 import Handsontable from 'handsontable';
 
+import axios from 'axios';
+
 import data from '../../data.json';
 
 const Popup = ({ showPopup }) => {
   const column = ['선택', '코드', '분류', '품목명', '수량', '단가', '총금액', '날짜'];
-  const hotData = data.a;
+  const [hotdata, setHotdata] = useState([]);
   let date = [];
+
+  useEffect(() => {
+    axios.get('http://localhost:5000/material/data').then((response) => {
+      setHotdata(response.data);
+    });
+  }, []);
+
   const onclick = () => {
     showPopup();
   };
   const add = () => {
-    hotData.forEach((o) => {
+    hotdata.forEach((o) => {
       if (o[0] === true) {
         date.push(o);
       }
@@ -35,7 +44,7 @@ const Popup = ({ showPopup }) => {
       </div>
       <div className={styles.table}>
         <HotTable
-          data={hotData}
+          data={hotdata}
           colHeaders={column}
           rowHeaders={true}
           columns={[

@@ -3,6 +3,7 @@ import styles from './Material.module.css';
 import { HotTable } from '@handsontable/react';
 import Handsontable from 'handsontable';
 import axios from 'axios';
+import e from 'cors';
 
 const Material = () => {
   const column = ['코드', '분류', '품목명', ' 수량', '단가', '총금액', '날짜', '작성자'];

@@ -20,12 +20,12 @@ app.use('/material', material);
 app.use('/material', MaterialData);
 app.use('/bom', bom);
 app.use('/bom', BomData);
-app.use('/project', project)
+app.use('/project', project);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Example app listening at http://192.168.0.21:${port}`);
 });

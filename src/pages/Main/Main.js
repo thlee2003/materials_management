@@ -14,6 +14,8 @@ const Main = () => {
   const [table, setTable] = useState([]);
   const [table2, setTable2] = useState([]);
   let a;
+  const [arr, setArr] = useState();
+  let firstInitial = ['C', 'P', 'B', 'F'];
 
   // 체크박스
   const checkValue = (checked) => {
