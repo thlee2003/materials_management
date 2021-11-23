@@ -14,13 +14,15 @@ app.post('/AdminLogin', (req, res) => {
       if (!err &&results <= 0 || results === undefined) {
         console.log('로그인에 실패하였습니다.');
         sendData = {
-          data: 'false',
+          data1: 'false',
         };
         res.send(sendData);
       } else {
         console.log('로그인에 성공하였습니다.');
         sendData = {
-          data: 'true',
+          data1: 'true',
+          data2: userName
+
         };
         res.send(sendData);
       }
