@@ -8,15 +8,6 @@ const Login = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:5000/login", {
-  //     userName: name,
-  //     userEmail: email
-  //   }).then((response)=> {
-  //     console.log(response.data);
-  //   })
-  // }, []);
-
   const onsubmit = (e) => {
     e.preventDefault();
     axios
@@ -26,9 +17,6 @@ const Login = () => {
       })
       .then((response) => {
         if (response.data.data1 === 'true') {
-          const user = response.data.data3
-          console.log(user)
-          localStorage.setItem(user, JSON.stringify(user));
           window.location.replace('/Main');
         } else {
           alert('로그인에 실패하였습니다.');

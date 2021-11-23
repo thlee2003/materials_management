@@ -10,6 +10,7 @@ import { ko } from 'date-fns/esm/locale';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Input from '../../components/Input/Input';
+import axios from 'axios';
 
 const BOMAdd = () => {
   const [low, setLow] = useState(1);
@@ -30,6 +31,20 @@ const BOMAdd = () => {
   const addLow = () => {
     setLow(low + 1);
   };
+  const onclick = () => {
+    axios.post('http://localhost:5000/bom/info', {
+      BomName: name,
+      Data: hotData,
+      length: hotData.length,
+    }).then(() => {
+      alert('등록 완료!');
+    });
+    console.log(name)
+
+    axios.post('http://localhost:5000/bom/BomData', {
+      BomData: name
+    })
+  }
   return (
     <div className={styles.header}>
       <Sidebar links={links} />
