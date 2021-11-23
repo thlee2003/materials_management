@@ -5,8 +5,10 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/esm/locale';
 
+import { HotTable } from '@handsontable/react';
+import Handsontable from 'handsontable';
+
 import Sidebar from '../../components/Sidebar/Sidebar';
-import Table from '../../components/Table/Table';
 import Popup from '../../components/Popup/Popup';
 import Input from '../../components/Input/Input';
 
@@ -17,6 +19,9 @@ const ProduceAdd = () => {
   const [name, setName] = useState('');
   const [select, setSelect] = useState('완제품');
   const [startDate, setStartDate] = useState(new Date());
+  if (data == undefined) {
+    setData(Handsontable.helper.createSpreadsheetData(1, column.length));
+  }
   const links = [
     {
       to: '/ProduceList',
@@ -79,7 +84,20 @@ const ProduceAdd = () => {
               <h2>자재 목록</h2>
               <button onClick={showPopup}>추가</button>
             </div>
-            {bool ? null : <Table data={data} height={400} column={column} />}
+            {bool ? null : (
+              <div className={styles.table}>
+                <HotTable
+                  className="htCenter"
+                  data={data}
+                  colHeaders={column}
+                  rowHeaders={true}
+                  width="100%"
+                  height={400}
+                  licenseKey="non-commercial-and-evaluation"
+                  stretchH="all"
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>

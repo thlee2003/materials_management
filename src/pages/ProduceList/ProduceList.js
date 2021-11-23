@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './ProduceList.module.css';
 
+import { HotTable } from '@handsontable/react';
+import Handsontable from 'handsontable';
+
 import Sidebar from '../../components/Sidebar/Sidebar';
-import Table from '../../components/Table/Table';
 
 import data from '../../data.json';
 
@@ -27,7 +29,18 @@ const ProduceList = () => {
       <Sidebar links={links} />
       <div className={styles.div}>
         <h1 className={styles.h1}>제품 목록</h1>
-        <Table height={730} column={column} data={data.produce} />
+        <div className={styles.table}>
+          <HotTable
+            className="htCenter"
+            data={data.produce}
+            colHeaders={column}
+            rowHeaders={true}
+            width="100%"
+            height={730}
+            licenseKey="non-commercial-and-evaluation"
+            stretchH="all"
+          />
+        </div>
       </div>
     </div>
   );

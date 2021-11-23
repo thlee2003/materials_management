@@ -21,8 +21,6 @@ const Material = () => {
   const addCell = () => {
     setA(a + 1);
   };
-
-  console.log(hotData.length);
   const addDB = () => {
     for (let i = 0; i < hotData.length; i++) {
       if (

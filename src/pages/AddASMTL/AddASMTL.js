@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import styles from './AddASMTL.module.css';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
-import { HotTable } from '@handsontable/react';
 
-import Table from '../../components/Table/Table';
+import { HotTable } from '@handsontable/react';
+import Handsontable from 'handsontable';
+
 import Popup from '../../components/Popup/Popup';
 
 import date from '../../data.json';
@@ -16,6 +17,9 @@ const AddASMTL = () => {
   const [data, setData] = useState();
   const [bool, setBool] = useState(false);
   let arr = ['', '', '', '', '', '', '', '', '', '', ''];
+  if (data == undefined) {
+    setData(Handsontable.helper.createSpreadsheetData(1, column.length));
+  }
   const links = [
     {
       to: '/AS',
@@ -73,7 +77,20 @@ const AddASMTL = () => {
             <h2>자재 목록</h2>
             <button onClick={showPopup}>추가</button>
           </div>
-          {bool ? null : <Table data={data} height={390} column={column2} />}
+          {bool ? null : (
+            <div className={styles.table}>
+              <HotTable
+                className="htCenter"
+                data={data}
+                colHeaders={column}
+                rowHeaders={true}
+                width="100%"
+                height={370}
+                licenseKey="non-commercial-and-evaluation"
+                stretchH="all"
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
