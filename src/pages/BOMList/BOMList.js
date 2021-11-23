@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './BOMList.module.css';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
 import List from '../../components/List/List';
 
 import data from '../../data.json';
+import axios from 'axios';
 
 const BOMList = () => {
+
+  const [name, setName] = useState([]);
+
   const links = [
     {
       to: '/BOMList',
@@ -17,15 +21,22 @@ const BOMList = () => {
       name: 'BOM 등록',
     },
   ];
+
+  useEffect(() => {
+    axios.get('http://localhost:5000/bom/BomData').then((response) => {
+      console.log(response.data);
+    })
+  })
+  
   return (
     <div className={styles.header}>
       <Sidebar links={links} />
       <div className={styles.div}>
         <div className={styles.content}>
           <h1>BOM 목록</h1>
-          {data.BOM.map((a) => (
+          {/* {data.BOM.map((a) => (
             <List name={a.name} data={a.data} />
-          ))}
+          ))} */}
         </div>
       </div>
     </div>

@@ -11,14 +11,6 @@ const Login = ({ setUserName }) => {
 
   const history = useHistory();
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:5000/login", {
-  //     userName: name,
-  //     userEmail: email
-  //   }).then((response)=> {
-  //     console.log(response.data);
-  //   })
-  // }, []);
   const onsubmit = (e) => {
     e.preventDefault();
     axios

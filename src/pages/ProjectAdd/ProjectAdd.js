@@ -9,6 +9,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import Table from '../../components/Table/Table';
 import Popup from '../../components/Popup/Popup';
 import Input from '../../components/Input/Input';
+import axios from 'axios';
 
 const ProjectAdd = () => {
   const column = ['코드', '분류', '품목명', ' 수량', '단가', '총금액', '날짜', '작성자'];
@@ -30,9 +31,18 @@ const ProjectAdd = () => {
     setBool(!bool);
     setData(hotData);
   };
+
   const onclick = () => {
-    setName('');
+    axios
+      .post('http://localhost:5000/project/info', {
+        ProjectName: name,
+      })
+      .then(() => {
+        alert('등록 완료!');
+      });
+    console.log(name);
   };
+
   return (
     <div className={styles.header}>
       <Sidebar links={links} />
