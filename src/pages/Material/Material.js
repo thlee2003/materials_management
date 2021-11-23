@@ -21,15 +21,16 @@ const Material = () => {
     setA(a + 1);
   };
   const addDB = () => {
-    axios
-      .post('http://localhost:5000/material/info', {
-        abc: hotData.length,
-        array: hotData,
-      })
-      .then(() => {
-        alert('등록 완료!');
-      });
-  };
+    
+      axios
+        .post('http://localhost:5000/material/info', {
+          abc: hotData.length,
+          array: hotData,
+        })
+        .then(() => {
+          alert('등록 완료!');
+        });
+    } 
   return (
     <div className={styles.header}>
       <div className={styles.div}>

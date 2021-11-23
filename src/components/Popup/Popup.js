@@ -6,8 +6,6 @@ import Handsontable from 'handsontable';
 
 import axios from 'axios';
 
-import data from '../../data.json';
-
 const Popup = ({ showPopup }) => {
   const column = ['선택', '코드', '분류', '품목명', '수량', '단가', '총금액', '날짜'];
   const [hotdata, setHotdata] = useState([]);
@@ -19,9 +17,12 @@ const Popup = ({ showPopup }) => {
     });
   }, []);
 
+  // 팝업 닫기
   const onclick = () => {
     showPopup();
   };
+
+  //체크 박스
   const add = () => {
     hotdata.forEach((o) => {
       if (o[0] === true) {
@@ -49,13 +50,14 @@ const Popup = ({ showPopup }) => {
           rowHeaders={true}
           columns={[
             { type: 'checkbox' },
-            { data: '코드' },
-            { data: '분류' },
-            { data: '품목명' },
-            { data: '수량' },
-            { data: '단가' },
-            { data: '총금액' },
-            { data: '날짜' },
+            { data: 'material_code' },
+            { data: 'classification' },
+            { data: 'item_name' },
+            { data: 'quantity' },
+            { data: 'unit_price' },
+            { data: 'total_amount' },
+            { data: 'update_date' },
+            { data: 'writer' },
           ]}
           width="100%"
           height="600"

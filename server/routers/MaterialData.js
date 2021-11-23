@@ -3,7 +3,7 @@ const app = express.Router();
 const db = require('../config/db');
 
 app.get('/data', (req, res) => {
-  const sqlQuery = 'SELECT * FROM material';
+  const sqlQuery = 'SELECT  material_code,classification,item_name,quantity,unit_price,total_amount,update_date,writer FROM material';
     db.query(sqlQuery, (err, result) => {
       res.send(result);
     })
