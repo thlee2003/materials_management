@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './ProduceList.module.css';
 
 import { HotTable } from '@handsontable/react';
-import Handsontable from 'handsontable';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
 

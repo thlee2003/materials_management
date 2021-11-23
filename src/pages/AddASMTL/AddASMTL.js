@@ -13,11 +13,10 @@ import date from '../../data.json';
 const AddASMTL = () => {
   const [customer, setCustomer] = useState();
   const column = ['코드', '제품명', '시리얼코드', '판매 방법', '수량', '날짜', '이름', '주소', '연락처'];
-  const column2 = ['코드', '분류', '품목명', ' 수량', '단가', '총금액', '날짜', '작성자'];
   const [data, setData] = useState();
   const [bool, setBool] = useState(false);
   let arr = ['', '', '', '', '', '', '', '', '', '', ''];
-  if (data == undefined) {
+  if (data === undefined) {
     setData(Handsontable.helper.createSpreadsheetData(1, column.length));
   }
   const links = [

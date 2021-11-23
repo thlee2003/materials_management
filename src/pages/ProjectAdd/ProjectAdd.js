@@ -19,7 +19,7 @@ const ProjectAdd = () => {
   const [data, setData] = useState();
   const [name, setName] = useState('');
   const [startDate, setStartDate] = useState(new Date());
-  if (data == undefined) {
+  if (data === undefined) {
     setData(Handsontable.helper.createSpreadsheetData(1, column.length));
   }
   const links = [

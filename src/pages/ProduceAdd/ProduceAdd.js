@@ -19,7 +19,7 @@ const ProduceAdd = () => {
   const [name, setName] = useState('');
   const [select, setSelect] = useState('완제품');
   const [startDate, setStartDate] = useState(new Date());
-  if (data == undefined) {
+  if (data === undefined) {
     setData(Handsontable.helper.createSpreadsheetData(1, column.length));
   }
   const links = [
