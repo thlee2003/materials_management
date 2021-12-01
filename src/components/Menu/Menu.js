@@ -10,7 +10,7 @@ const Menu = () => {
           <p className={styles.p}>재고</p>
         </Link>
         <Link to="/Material" style={{ textDecoration: 'none' }}>
-          <p className={styles.p}>자재</p>
+          <p className={styles.p}>자재 등록</p>
         </Link>
         <Link to="/BOMList" style={{ textDecoration: 'none' }}>
           <p className={styles.p}>BOM</p>
