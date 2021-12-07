@@ -27,5 +27,9 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
+<<<<<<< HEAD
   console.log(`Example app listening at localhost:${port}`);
+=======
+  console.log(`Example app listening at http://localhost:${port}`);
+>>>>>>> df68f709b751c540b0e28a524f89c7a49474a304
 });

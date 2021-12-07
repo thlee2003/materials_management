@@ -37,9 +37,14 @@ const BOMAdd = () => {
         BomName: name,
         Data: hotData,
         length: hotData.length,
+        date: startDate,
       })
-      .then(() => {
-        alert('등록 완료!');
+      .then((response) => {
+        if(response.data.data == 'false') {
+          alert('해당 BOM 명은 현재 등록되어 있습니다.')
+        } else {
+          alert('등록 완료되었습니다.');
+        }
       });
     console.log(name);
 
