@@ -14,10 +14,11 @@ app.post('/info', (req, res) => {
     }
   }
 
-  console.log(str);
+  console.log(str, array, length);
 
   const sqlQuery =
-    'INSERT INTO material (material_code,classification,item_name,quantity,unit_price,total_amount,update_date,writer) VALUES ' + str;
+    'INSERT INTO material (material_code ,classification ,item_name ,quantity ,unit_price ,total_amount ,update_date ,writer) VALUES ' +
+    str;
   db.query(sqlQuery, array, (err, results) => {
     if (err) {
       console.log(err);

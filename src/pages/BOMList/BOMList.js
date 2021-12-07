@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './BOMList.module.css';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
-// import List from '../../components/List/List';
+import List from '../../components/List/List';
 
 import axios from 'axios';
 
 const BOMList = () => {
-  // const [name, setName] = useState([]);
-
+  const [bomList, usebomList] = useState();
   const links = [
     {
       to: '/BOMList',
@@ -20,11 +19,14 @@ const BOMList = () => {
     },
   ];
 
+  // bomList.map((a) => console.log(a));
+
   useEffect(() => {
     axios.get('http://localhost:5000/bom/BomData').then((response) => {
       console.log(response.data);
+      usebomList(response.data);
     });
-  });
+  }, []);
 
   return (
     <div className={styles.header}>
@@ -32,8 +34,8 @@ const BOMList = () => {
       <div className={styles.div}>
         <div className={styles.content}>
           <h1>BOM 목록</h1>
-          {/* {data.BOM.map((a) => (
-            <List name={a.name} data={a.data} />
+          {/* {bomList.map((a) => (
+            <List name={a.bom_name} />
           ))} */}
         </div>
       </div>

@@ -105,10 +105,10 @@ const SaleAdd = () => {
                 />
               </div>
             </div>
-            {/* <div className={styles.one}>
+            <div className={styles.one}>
               <p>비고</p>
               <textarea></textarea>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

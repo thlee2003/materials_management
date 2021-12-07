@@ -40,8 +40,8 @@ const BOMAdd = () => {
         date: startDate,
       })
       .then((response) => {
-        if(response.data.data == 'false') {
-          alert('해당 BOM 명은 현재 등록되어 있습니다.')
+        if (response.data.data == 'false') {
+          alert('해당 BOM 명은 현재 등록되어 있습니다.');
         } else {
           alert('등록 완료되었습니다.');
         }
