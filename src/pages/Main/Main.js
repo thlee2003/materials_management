@@ -6,6 +6,7 @@ import { HotTable } from '@handsontable/react';
 // import Search from '../../components/Search/Search';
 
 import axios from 'axios';
+import Handsontable from 'handsontable';
 
 const Main = () => {
   const column = ['코드', '분류', '품목명', '제조사', '수량', '단가(부가세 별도)', '총금액', '날짜', '작성자'];
