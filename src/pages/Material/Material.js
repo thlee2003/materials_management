@@ -4,9 +4,10 @@ import Handsontable from 'handsontable';
 import axios from 'axios';
 
 import { HyperFormula } from 'hyperformula';
-// 테이블 생성
+
+// 테이블 생성 함수
 let hot;
-const init = (userName) => {
+const table = (userName) => {
   const column = ['코드', '분류', '품목명', '제조사', ' 수량', '단가(부가세 별도)', '총금액', '날짜', '작성자'];
   const hyperformulaInstance = HyperFormula.buildEmpty();
   const container = document.getElementById('table');
@@ -17,7 +18,7 @@ const init = (userName) => {
   var month = today.getMonth() + 1;
   var day = today.getDate();
 
-  const hotData = [['', '', '', '', 0, 0, 0, `${year}-${month}-${day}`, 'admin']];
+  const hotData = [['', '', '', '', 0, 0, '=PRODUCT(E1:F1)', `${year}-${month}-${day}`, 'admin']];
 
   // 테이블 옵션
   hot = new Handsontable(container, {
@@ -29,7 +30,20 @@ const init = (userName) => {
     height: '100%',
     licenseKey: 'non-commercial-and-evaluation',
     stretchH: 'all',
-    columns: [{}, {}, {}, {}, { type: 'numeric' }, { type: 'numeric' }, { type: 'numeric' }, { readOnly: true }, { readOnly: true }],
+    columns: [
+      {},
+      {},
+      {},
+      {},
+      { type: 'numeric' },
+      { type: 'numeric' },
+      {
+        type: 'numeric',
+        readOnly: true,
+      },
+      { readOnly: true },
+      { readOnly: true },
+    ],
     fixedRowsBottom: 1,
     formulas: {
       engine: hyperformulaInstance,
@@ -40,13 +54,12 @@ const init = (userName) => {
   let num = hot.countRows();
   // 합계
   hot.alter('insert_row', hot.countRows());
-  hot.setDataAtCell(0, 6, '=SUM(E1:F1)');
   hot.setDataAtCell(hot.countRows() - 1, 6, '=SUM(G1:G' + (hot.countRows() - 1) + ')');
 
   // 셀 추가
   let add = document.querySelector('.add');
   add.addEventListener('click', function () {
-    let data = ['', '', '', '', 0, 0, '=SUM(E' + hot.countRows() + ':F' + hot.countRows() + ')', `${year}-${month}-${day}`, 'admin'];
+    let data = ['', '', '', '', 0, 0, '=PRODUCT(E' + hot.countRows() + ':F' + hot.countRows() + ')', `${year}-${month}-${day}`, 'admin'];
     hot.alter('insert_row', hot.countRows() - 1, 1);
     for (let i = 0; i < 9; i++) {
       hot.setDataAtCell(hot.countRows() - 2, i, data[i]);
@@ -66,7 +79,6 @@ const init = (userName) => {
   // 업데이트시 값 적용
   hot.updateSettings({
     afterCreateRow: function (i) {
-      hot.setDataAtCell(hot.countRows() - 1, 6, '=SUM(E1:F1)');
       hot.setDataAtCell(hot.countRows() - 1, 6, '=SUM(G1:G' + (hot.countRows() - 1) + ')');
       hot.setDataAtCell(i - 1, 0, '');
     },
@@ -99,7 +111,7 @@ const init = (userName) => {
 const Material = ({ userName }) => {
   // 테이블 삽입
   useEffect(() => {
-    init(userName);
+    table(userName);
   }, []);
   return (
     <div className={styles.header}>

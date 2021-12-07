@@ -9,7 +9,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import data from '../../data.json';
 
 const SaleList = () => {
-  const column = ['코드', '제품명', '시리얼코드', '판매 방법', '수량', '가격(총금액)', '판매 날짜', '이름', '주소', '연락처', 'e-mail'];
+  const column = ['코드', '제품명', '시리얼코드', '판매 방법', '수량', '가격(총금액)', '주문 날짜', '이름', '주소', '연락처', 'e-mail'];
   const links = [
     {
       to: '/SaleList',

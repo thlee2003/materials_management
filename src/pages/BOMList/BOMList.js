@@ -7,7 +7,7 @@ import List from '../../components/List/List';
 import axios from 'axios';
 
 const BOMList = () => {
-  const [bomList, usebomList] = useState();
+  const [bomList, usebomList] = useState([{ bom_name: '없음' }]);
   const links = [
     {
       to: '/BOMList',
@@ -18,8 +18,6 @@ const BOMList = () => {
       name: 'BOM 등록',
     },
   ];
-
-  // bomList.map((a) => console.log(a));
 
   useEffect(() => {
     axios.get('http://localhost:5000/bom/BomData').then((response) => {
@@ -34,9 +32,9 @@ const BOMList = () => {
       <div className={styles.div}>
         <div className={styles.content}>
           <h1>BOM 목록</h1>
-          {/* {bomList.map((a) => (
+          {bomList.map((a) => (
             <List name={a.bom_name} />
-          ))} */}
+          ))}
         </div>
       </div>
     </div>

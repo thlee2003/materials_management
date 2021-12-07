@@ -71,6 +71,7 @@
 .middle {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .middle button {
@@ -79,5 +80,5 @@
 }
 
 .table {
-  height: 560px;
+  height: 240px;
 }
