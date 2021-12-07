@@ -7,7 +7,7 @@ import Handsontable from 'handsontable';
 import axios from 'axios';
 
 const Popup = ({ showPopup }) => {
-  const column = ['선택', '코드', '분류', '품목명', '수량', '단가', '총금액', '날짜'];
+  const column = ['선택', '코드', '분류', '품목명', '수량', '단가', '총금액', '날짜', '이름'];
   const [hotdata, setHotdata] = useState([]);
   let date = [];
 

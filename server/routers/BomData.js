@@ -1,14 +1,14 @@
 const express = require('express');
 const app = express.Router();
-const db = require('../config/db');
+const db1 = require('../config/db');
+const db2 = require('../config/db2');
 
-app.all('/BomData', (req, res) => {
-  const BomData = req.body.BomData;
-
-  console.log(BomData);
-
-  const sqlQuery = 'SELECT FROM ' + BomData + '';
-  db.query(sqlQuery, (err, result) => {
+app.get('/BomData', (req, res) => {
+  const sqlQuery = 'SELECT bom_name FROM bom ORDER BY update_date DESC';
+  db1.query(sqlQuery, (err, result) => {
+    if(err) {
+      console.log(err);
+    }
     res.send(result);
   });
 });
