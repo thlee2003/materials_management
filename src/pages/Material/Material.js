@@ -20,6 +20,17 @@ const table = (userName) => {
 
   const hotData = [['', '', '', '', 0, 0, '=PRODUCT(E1:F1)', `${year}-${month}-${day}`, 'admin']];
 
+  let col, row, data;
+  const afterFormulasValuesUpdate = (changes) => {
+    changes.forEach((change) => {
+      if (change.address.col === 6) {
+        col = change.address.col;
+        row = change.address.row;
+        data = change.newValue;
+      }
+    });
+  };
+
   // 테이블 옵션
   hot = new Handsontable(container, {
     className: 'htCenter',
@@ -49,6 +60,7 @@ const table = (userName) => {
       engine: hyperformulaInstance,
       sheetName: 'Sheet1',
     },
+    afterFormulasValuesUpdate,
   });
 
   let num = hot.countRows();
@@ -78,6 +90,12 @@ const table = (userName) => {
 
   // 업데이트시 값 적용
   hot.updateSettings({
+    afterSetDataAtCell: function (i) {
+      if (data !== 0) {
+        console.log(data, row - 1, col);
+        hotData[row - 1][col] = data;
+      }
+    },
     afterCreateRow: function (i) {
       hot.setDataAtCell(hot.countRows() - 1, 6, '=SUM(G1:G' + (hot.countRows() - 1) + ')');
       hot.setDataAtCell(i - 1, 0, '');
@@ -88,23 +106,24 @@ const table = (userName) => {
   let enrollment = document.querySelector('.enrollment');
   let bool = true;
   enrollment.addEventListener('click', function () {
-    hotData.pop();
+    // hotData.pop();
     hotData.forEach((data) => {
       if (data[0] === '' || data[1] === '' || data[2] === '' || data[3] === '' || data[4] === 0 || data[5] === 0) {
         bool = false;
       }
     });
-    console.log(bool);
-    if (bool) {
-      axios
-        .post('http://localhost:5000/material/info', {
-          abc: hotData.length,
-          array: hotData,
-        })
-        .then(() => {
-          alert('등록 완료!');
-        });
-    }
+    console.log(hotData);
+
+    // if (bool) {
+    //   axios
+    //     .post('http://localhost:5000/material/info', {
+    //       abc: hotData.length,
+    //       array: hotData,
+    //     })
+    //     .then(() => {
+    //       alert('등록 완료!');
+    //     });
+    // }
   });
 };
 
