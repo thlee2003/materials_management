@@ -20,7 +20,7 @@ const Login = ({ setUserName }) => {
       })
       .then((response) => {
         if (response.data.data1 === 'true') {
-          setUserName(response.data.data2)
+          setUserName(response.data.data2);
           history.push('/Main');
         } else {
           alert('로그인에 실패하였습니다.');

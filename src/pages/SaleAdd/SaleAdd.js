@@ -13,6 +13,8 @@ const SaleAdd = () => {
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const [company, setCompany] = useState('');
+  const [number, setNumber] = useState('');
   const [prodName, setProdName] = useState('');
   const [quantity, setQuantity] = useState('');
   const [select, setSelect] = useState('판매');
@@ -34,6 +36,8 @@ const SaleAdd = () => {
     setAddress('');
     setPhone('');
     setEmail('');
+    setCompany('');
+    setNumber('');
     setProdName('');
     setQuantity('');
     setPrice('');
@@ -48,6 +52,7 @@ const SaleAdd = () => {
           <button onClick={onclick}>등록</button>
         </div>
         <div className={styles.contents}>
+          {/* 구매자 정보 */}
           <div className={styles.buyer}>
             <h2>구매자 정보</h2>
             <div className={styles.one}>
@@ -58,11 +63,23 @@ const SaleAdd = () => {
               <Input name={'연락처'} input={phone} setInput={setPhone} />
               <Input name={'e-mail'} input={email} setInput={setEmail} />
             </div>
+            <div className={styles.one}>
+              <Input name={'기관/회사명'} input={company} setInput={setCompany} />
+              <Input name={'사업자번호'} input={number} setInput={setNumber} />
+            </div>
           </div>
           <div className={styles.product}>
+            {/* 제품 정보 */}
             <h2>제품</h2>
             <div className={styles.one}>
-              <Input name={'제품명'} input={prodName} setInput={setProdName} />
+              <div className={styles.input} name="b">
+                <p>판매 방법</p>
+                <select value={prodName} onChange={(e) => setProdName(e.target.value)}>
+                  <option value="베이직키트">베이직키트</option>
+                  <option value="스탠다드키트">스탠다드키트</option>
+                  <option value="프리미엄키트">프리미엄키트</option>
+                </select>
+              </div>
               <Input name={'수량'} input={quantity} setInput={setQuantity} />
             </div>
             <div className={styles.one}>
@@ -87,6 +104,10 @@ const SaleAdd = () => {
                   onChange={(date) => setStartDate(date)}
                 />
               </div>
+            </div>
+            <div className={styles.one}>
+              <p>비고</p>
+              <textarea></textarea>
             </div>
           </div>
         </div>

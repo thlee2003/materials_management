@@ -48,6 +48,12 @@
   margin-left: 20px;
 }
 
+.buyer h2,
+.product h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .input {
   display: flex;
   align-items: center;

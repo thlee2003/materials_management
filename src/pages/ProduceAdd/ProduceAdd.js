@@ -72,11 +72,11 @@ const ProduceAdd = () => {
               <div className={styles.input} name="a">
                 <p>분류</p>
                 <select value={select} onChange={(e) => setSelect(e.target.value)}>
-                  <option value="완제품">완제품</option>
+                  <option value="완제품(키트)">완제품(키트)</option>
+                  <option value="완제품(본체)">완제품(본체)</option>
                   <option value="반제품">반제품</option>
                 </select>
               </div>
-              {/* <Input name={'작성자'} input={writer} setInput={setWriter} /> */}
             </div>
           </div>
           <div>

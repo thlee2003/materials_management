@@ -35,6 +35,7 @@ const Popup = ({ showPopup }) => {
     if (date.length === 0) {
       date = Handsontable.helper.createSpreadsheetData(1, 8);
     }
+
     showPopup(date);
   };
   return (

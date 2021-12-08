@@ -34,6 +34,11 @@
   text-align: center;
 }
 
+.info h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .top button,
 .middle button {
   width: 7%;
@@ -86,6 +91,12 @@
   display: flex;
   justify-content: space-between;
 }
+
+.middle button {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .table {
-  height: 430px;
+  height: 490px;
 }
