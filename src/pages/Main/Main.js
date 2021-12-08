@@ -15,7 +15,7 @@ const Main = () => {
 
   useEffect(() => {
     axios.get('http://localhost:5000/material/data').then((response) => {
-      setTable(response.data);
+      // setTable(response.data);
     });
   }, []);
 
