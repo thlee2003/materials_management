@@ -58,7 +58,7 @@ const Popup = ({ showPopup }) => {
             { data: 'unit_price' },
             { data: 'total_amount' },
             { data: 'update_date' },
-            { data: 'writer' },
+            { data: 'user_name' },
           ]}
           width="100%"
           height="600"

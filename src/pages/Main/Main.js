@@ -15,6 +15,7 @@ const Main = () => {
 
   useEffect(() => {
     axios.get('http://localhost:5000/material/data').then((response) => {
+      console.log(response.data)
       if (response.data.length !== 0) {
         setTable(response.data);
       } else {
@@ -44,13 +45,13 @@ const Main = () => {
           columns={[
             { data: 'material_code', width: '40px' },
             { data: 'classification', width: '60px' },
-            { data: 'item_name', width: '80px' },
-            { width: '60px' },
+            { data: 'item_name', width: '80px' },  
+            { data: 'manufacturer', width: '60px' },
             { data: 'quantity', type: 'numeric', numericFormat: { pattern: '0,0' }, width: '60px' },
             { data: 'unit_price', type: 'numeric', numericFormat: { pattern: '0,0' }, width: '60px' },
             { data: 'total_amount', type: 'numeric', numericFormat: { pattern: '0,0' }, width: '60px' },
             { data: 'update_date', width: '60px' },
-            { data: 'writer', width: '60px' },
+            { data: 'user_name', width: '60px' },
           ]}
         />
       </div>

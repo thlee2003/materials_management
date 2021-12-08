@@ -92,7 +92,7 @@ const table = (userName) => {
     hotData.forEach((data) => {
       if (data[0] === '' || data[1] === '' || data[2] === '' || data[3] === '' || data[4] === 0 || data[5] === 0) {
         bool = false;
-        alert('내용을 입력하세요!')
+        alert('내용을 입력하세요!');
       }
     });
     console.log(bool);
