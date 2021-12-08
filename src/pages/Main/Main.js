@@ -15,7 +15,11 @@ const Main = () => {
 
   useEffect(() => {
     axios.get('http://localhost:5000/material/data').then((response) => {
-      // setTable(response.data);
+      if (response.data.length !== 0) {
+        setTable(response.data);
+      } else {
+        setTable(Handsontable.helper.createSpreadsheetData(1, column.length));
+      }
     });
   }, []);
 
@@ -33,19 +37,20 @@ const Main = () => {
           rowHeaders={true}
           width="100%"
           height="100%"
+          selectionMode="multiple"
           licenseKey="non-commercial-and-evaluation"
           stretchH="all"
           readOnly
           columns={[
-            { data: 'material_code' },
-            { data: 'classification' },
-            { data: 'item_name' },
-            {},
-            { data: 'quantity', type: 'numeric', numericFormat: { pattern: '0,0' } },
-            { data: 'unit_price', type: 'numeric', numericFormat: { pattern: '0,0' }, width: '50px' },
-            { data: 'total_amount', type: 'numeric', numericFormat: { pattern: '0,0' } },
-            { data: 'update_date' },
-            { data: 'writer' },
+            { data: 'material_code', width: '40px' },
+            { data: 'classification', width: '60px' },
+            { data: 'item_name', width: '80px' },
+            { width: '60px' },
+            { data: 'quantity', type: 'numeric', numericFormat: { pattern: '0,0' }, width: '60px' },
+            { data: 'unit_price', type: 'numeric', numericFormat: { pattern: '0,0' }, width: '60px' },
+            { data: 'total_amount', type: 'numeric', numericFormat: { pattern: '0,0' }, width: '60px' },
+            { data: 'update_date', width: '60px' },
+            { data: 'writer', width: '60px' },
           ]}
         />
       </div>
