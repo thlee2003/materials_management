@@ -17,3 +17,10 @@
   font-size: 23px;
   margin-left: 10px;
 }
+
+button {
+  margin-left: 20px;
+  width: 100px;
+  height: 30px;
+  font-size: 18px;
+}

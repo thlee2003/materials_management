@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -23,14 +23,39 @@ import Logo from './components/Logo/Logo';
 import Menu from './components/Menu/Menu';
 import Profile from './components/Profile/Profile';
 
+import { useCookies } from 'react-cookie';
+
 function App() {
+  const [isRemember, setIsRemember] = useState(false);
+  const [cookies, setCookie, removeCookie] = useCookies(['rememberText']);
+  const [cookies2, setCookie2, removeCookie2] = useCookies(['rememberText2']);
   const [userName, setUserName] = useState('');
+  const [department, setDepartment] = useState('');
+  const [bool, setBool] = useState(true);
+  useEffect(() => {
+    if (cookies.rememberText !== undefined) {
+      setUserName(cookies.rememberText);
+      setDepartment(cookies2.rememberText2);
+      setIsRemember(true);
+    }
+  }, []);
+  if (bool) {
+    setCookie('rememberText', userName, { path: '/' });
+    setCookie2('rememberText2', department, { path: '/' });
+  } else {
+    removeCookie('rememberText');
+    removeCookie2('rememberText');
+  }
+  const logout = () => {
+    setBool(!bool);
+    window.location.replace('/');
+  };
   return (
     <BrowserRouter>
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <Login setUserName={setUserName} />
+            <Login setUserName={setUserName} setDepartment={setDepartment} />
           </Route>
           <Route exact path="/res">
             <Res />
@@ -39,7 +64,7 @@ function App() {
             <div className="header" style={{ justifyContent: 'space-between' }}>
               <Logo />
               <Menu />
-              <Profile userName={userName} />
+              <Profile userName={userName} department={department} logout={logout} />
             </div>
             <Route exact path="/Main">
               <Main />
