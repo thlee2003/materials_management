@@ -17,6 +17,10 @@ app.all('/check', (req, res) => {
                 data1 : 'true',
             };
             res.send(sendData);  
+        } else if(!err &&result <= 0 || result === undefined && !err &&result > 0 || result !== undefined) {
+            sendData = {
+                data1 : 'uhm'
+            }
         } else {
             sendData = {
                 data1 : 'false',
