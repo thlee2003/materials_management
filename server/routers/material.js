@@ -17,12 +17,14 @@ app.post('/info', (req, res) => {
   console.log(str, array, length);
 
   const sqlQuery =
-    'INSERT INTO material (material_code,classification,item_name,manufacturer,quantity,unit_price,total_amount,update_date,user_name) VALUES ' + str;
+    'INSERT INTO material (material_code,classification,item_name,manufacturer,quantity,unit_price,total_amount,update_date,user_name) VALUES ' +
+    str;
   db.query(sqlQuery, array, (err, results) => {
     if (err) {
       console.log(err);
     } else {
       console.log('등록 완료~!');
+      res.send(true);
     }
   });
 });

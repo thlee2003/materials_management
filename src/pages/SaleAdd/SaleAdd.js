@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './SaleAdd.module.css';
 
-import { HotTable } from '@handsontable/react';
 import Handsontable from 'handsontable';
 import { HyperFormula } from 'hyperformula';
 
@@ -13,25 +12,19 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import Input from '../../components/Input/Input';
 
 // 테이블 생성 함수
-let hot;
+let hot, hotData;
+let _prodName = '',
+  _serial = '',
+  _select = '',
+  _quantity = 0,
+  _price = 0,
+  _date;
 const table = () => {
-  const column = [
-    '코드',
-    '제품명',
-    '시리얼코드',
-    '판매 방법',
-    '수량',
-    '판매가격',
-    '가격(총금액)',
-    '주문 날짜',
-    '이름',
-    '주소',
-    '연락처',
-    'e-mail',
-  ];
+  const column = ['코드', '제품명', '시리얼코드', '판매 방법', '수량', '판매가격', '가격(총금액)', '주문 날짜'];
   const hyperformulaInstance = HyperFormula.buildEmpty();
   const container = document.getElementById('table');
-  const hotData = [['', '', '', '', 0, 0, '=PRODUCT(E1:F1)', '', '', '', '', '']];
+  // hotData = [[]];
+  hotData = [['', '', '', '', 0, 0, '=PRODUCT(E1:F1)', '']];
 
   // 테이블 옵션
   hot = new Handsontable(container, {
@@ -52,29 +45,63 @@ const table = () => {
 
   let num = hot.countRows();
   // 합계
+
   hot.alter('insert_row', hot.countRows());
   hot.setDataAtCell(hot.countRows() - 1, 6, '=SUM(G1:G' + (hot.countRows() - 1) + ')');
+
+  // 추가
+  let add = document.querySelector('.add');
+  add.addEventListener('click', function () {
+    console.log(num, hot.countRows());
+    if (num === 1) {
+      if (_serial !== '' && _price !== 0 && _quantity !== 0) {
+        let data = ['', _prodName, _serial, _select, _quantity, _price, '=PRODUCT(E1:F1)', _date];
+        for (let i = 0; i < 8; i++) {
+          hot.setDataAtCell(hot.countRows() - 2, i, data[i]);
+        }
+        num += 1;
+      }
+    } else {
+      if (_serial !== '' && _price !== 0 && _quantity !== 0) {
+        let data = [
+          '',
+          _prodName,
+          _serial,
+          _select,
+          _quantity,
+          _price,
+          '=PRODUCT(E' + hot.countRows() + ':F' + hot.countRows() + ')',
+          _date,
+        ];
+        console.log(data);
+        hot.alter('insert_row', hot.countRows() - 1, 1);
+        for (let i = 0; i < 8; i++) {
+          hot.setDataAtCell(hot.countRows() - 2, i, data[i]);
+        }
+        num += 1;
+      }
+    }
+  });
 };
 
 const SaleAdd = () => {
   // 테이블 삽입
   useEffect(() => {
     table();
-  });
+  }, []);
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');
   const [number, setNumber] = useState('');
-  const [prodName, setProdName] = useState('');
+  const [prodName, setProdName] = useState('베이직키트');
   const [quantity, setQuantity] = useState('');
   const [select, setSelect] = useState('판매');
   const [price, setPrice] = useState('');
   const [serial, setSerial] = useState('');
   const [startDate, setStartDate] = useState(new Date());
-  const column = ['코드', '제품명', '시리얼코드', '판매 방법', '수량', '가격(총금액)', '주문 날짜', '이름', '주소', '연락처', 'e-mail'];
-  const hotData = Handsontable.helper.createSpreadsheetData(1, column.length);
+
   const links = [
     {
       to: '/SaleList',
@@ -86,17 +113,58 @@ const SaleAdd = () => {
     },
   ];
   const onclick = () => {
-    setName('');
-    setAddress('');
-    setPhone('');
-    setEmail('');
-    setCompany('');
-    setNumber('');
-    setProdName('');
-    setQuantity('');
-    setPrice('');
-    setSerial('');
+    hotData.pop();
+    console.log(hotData);
+    console.log(name, address, phone, email, company, number);
+    // setName('');
+    // setAddress('');
+    // setPhone('');
+    // setEmail('');
+    // setCompany('');
+    // setNumber('');
+    // setQuantity('');
+    // setPrice('');
+    // setSerial('');
+    // hotData = [['', '', '', '', 0, 0, '=PRODUCT(E1:F1)', '']];
   };
+  useEffect(() => {
+    let year, month, day;
+    let date = startDate.toString().split(' ');
+    year = date[3];
+    if (date[1] === 'Jan') {
+      month = 1;
+    } else if (date[1] === 'Feb') {
+      month = 2;
+    } else if (date[1] === 'Mar') {
+      month = 3;
+    } else if (date[1] === 'Apr') {
+      month = 4;
+    } else if (date[1] === 'May') {
+      month = 5;
+    } else if (date[1] === 'Jun') {
+      month = 6;
+    } else if (date[1] === 'Jul') {
+      month = 7;
+    } else if (date[1] === 'Aug') {
+      month = 8;
+    } else if (date[1] === 'Sep') {
+      month = 9;
+    } else if (date[1] === 'Oct') {
+      month = 10;
+    } else if (date[1] === 'Nov') {
+      month = 11;
+    } else if (date[1] === 'Dec') {
+      month = 12;
+    }
+    day = date[2];
+    date = `${year}-${month}-${day}`;
+    _prodName = prodName;
+    _serial = serial;
+    _select = select;
+    _quantity = +quantity;
+    _price = +price;
+    _date = date;
+  }, [prodName, serial, select, quantity, price, startDate]);
   return (
     <div className={styles.header}>
       <Sidebar links={links} />
@@ -123,12 +191,12 @@ const SaleAdd = () => {
           <div className={styles.product}>
             {/* 제품 정보 */}
             <div className={styles.middle}>
-              <h2>신규 자재</h2>
-              <button>행 추가</button>
+              <h2>제품</h2>
+              <button className="add">추가</button>
             </div>
             <div className={styles.one}>
               <div className={styles.input} name="b">
-                <p>판매 방법</p>
+                <p>제품</p>
                 <select value={prodName} onChange={(e) => setProdName(e.target.value)}>
                   <option value="베이직키트">베이직키트</option>
                   <option value="스탠다드키트">스탠다드키트</option>

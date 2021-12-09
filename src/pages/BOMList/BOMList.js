@@ -30,10 +30,10 @@ const BOMList = () => {
     <div className={styles.header}>
       <Sidebar links={links} />
       <div className={styles.div}>
+        <h1>BOM 목록</h1>
         <div className={styles.content}>
-          <h1>BOM 목록</h1>
-          {bomList.map((a) => (
-            <List name={a.bom_name} />
+          {bomList.map((a, index) => (
+            <List key={index + 1} name={a.bom_name} />
           ))}
         </div>
       </div>
