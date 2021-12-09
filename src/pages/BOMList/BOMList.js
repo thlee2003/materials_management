@@ -21,7 +21,6 @@ const BOMList = () => {
 
   useEffect(() => {
     axios.get('http://localhost:5000/bom/BomData').then((response) => {
-      console.log(response.data);
       usebomList(response.data);
     });
   }, []);

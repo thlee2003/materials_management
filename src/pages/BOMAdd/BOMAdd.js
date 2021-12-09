@@ -106,6 +106,7 @@ const BOMAdd = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [bool, setBool] = useState(false);
   const [data, setData] = useState();
+  const hyperformulaInstance = HyperFormula.buildEmpty();
 
   const links = [
     {
@@ -119,6 +120,11 @@ const BOMAdd = () => {
   ];
   const showPopup = (date) => {
     setBool(!bool);
+    if (date !== undefined) {
+      for (let i = 0; i < date.length; i++) {
+        date[i].total_amount = '=PRODUCT(E' + (i + 1) + ':F' + (i + 1) + ')';
+      }
+    }
     setData(date);
   };
   if (data === undefined) {
@@ -126,6 +132,9 @@ const BOMAdd = () => {
   }
   const enrollment = () => {
     let checked = true;
+    if (name === '') {
+      checked = false;
+    }
     if (newData === undefined) {
       // 기존 자재 비교
       data.forEach((data) => {
@@ -226,6 +235,9 @@ const BOMAdd = () => {
                 height="100%"
                 licenseKey="non-commercial-and-evaluation"
                 stretchH="all"
+                formulas={{
+                  engine: hyperformulaInstance,
+                }}
               />
             </div>
           </div>

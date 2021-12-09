@@ -62,6 +62,7 @@ const table = (userName) => {
     let data = ['', '', '', '', 0, 0, '=PRODUCT(E' + hot.countRows() + ':F' + hot.countRows() + ')', `${year}-${month}-${day}`, 'admin'];
     hot.alter('insert_row', hot.countRows() - 1, 1);
     for (let i = 0; i < 9; i++) {
+      console.log(i);
       hot.setDataAtCell(hot.countRows() - 2, i, data[i]);
     }
     num += 1;
@@ -80,7 +81,6 @@ const table = (userName) => {
   hot.updateSettings({
     afterCreateRow: function (i) {
       hot.setDataAtCell(hot.countRows() - 1, 6, '=SUM(G1:G' + (hot.countRows() - 1) + ')');
-      hot.setDataAtCell(i - 1, 0, '');
     },
   });
 

@@ -5,7 +5,6 @@ import { HotTable } from '@handsontable/react';
 import Handsontable from 'handsontable';
 
 const List = ({ name, data }) => {
-  console.log(name);
   const column = ['코드', '분류', '품목명', ' 수량', '단가', '총금액', '날짜', '작성자'];
   const [bool, setBool] = useState(false);
   const onclick = () => {
