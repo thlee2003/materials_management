@@ -94,15 +94,23 @@ const table = (userName) => {
         bool = false;
         alert('내용을 입력하세요!');
       }
+      //---------------중복 데이터 확인--------------//
+      axios.post('http://localhost:5000/material/check', {
+        code: data[0]
+      }).then((response) => {
+        if(response.data.data1 === 'false') {
+          alert('동일한 코드가 존재합니다. 다른 코드를 입력해주세요.')
+        }
+      });
+      //------------------------------------//
     });
     console.log(bool);
+    
     if (bool) {
       axios.post('http://localhost:5000/material/info', {
         abc: hotData.length,
         array: hotData,
-      }).then(() => {
-        alert('등록 완료!');
-      });
+      }).then(() => {});
     }
   });
 };

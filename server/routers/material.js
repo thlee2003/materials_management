@@ -2,7 +2,7 @@ const express = require('express');
 const app = express.Router();
 const db = require('../config/db');
 
-app.post('/info', (req, res) => {
+app.all('/info', (req, res) => {
   const array = req.body.array;
   const length = req.body.abc;
 
@@ -14,10 +14,10 @@ app.post('/info', (req, res) => {
     }
   }
 
-  console.log(str, array, length);
+  // console.log(str, array, length);
 
   const sqlQuery =
-    'INSERT INTO material (material_code,classification,item_name,manufacturer,quantity,unit_price,total_amount,update_date,user_name) VALUES ' + str;
+    'INSERT IGNORE INTO material (material_code,classification,item_name,manufacturer,quantity,unit_price,total_amount,update_date,user_name) VALUES ' + str;
   db.query(sqlQuery, array, (err, results) => {
     if (err) {
       console.log(err);

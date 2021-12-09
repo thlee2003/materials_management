@@ -153,24 +153,18 @@ const BOMAdd = () => {
 
     if (checked) {
       console.log(data, newData);
-      //   axios
-      //     .post('http://localhost:5000/bom/info', {
-      //       BomName: name,
-      //       Data: hotData,
-      //       length: hotData.length,
-      //       date: startDate,
-      //     })
-      //     .then((response) => {
-      //       if (response.data.data == 'false') {
-      //         alert('해당 BOM 명은 현재 등록되어 있습니다.');
-      //       } else {
-      //         alert('등록 완료되었습니다.');
-      //       }
-      //     });
-      //   console.log(name);
-      //   axios.post('http://localhost:5000/bom/BomData', {
-      //     BomData: name,
-      //   });
+      axios.post('http://localhost:5000/bom/info', {
+        BomName: name,
+        Data: data,
+        length1: data.length,
+        date: startDate,
+      }).then((response) => {
+        if(response.data.data1 === 'false') {
+          alert('동일한 BOM 이름이 존재합니다.')
+        } else {
+          alert('등록 완료!')
+        }
+      })
     }
   };
   return (
