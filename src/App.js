@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Login from './pages/Login/Login';
+import Res from './pages/Res/Res';
 import Main from './pages/Main/Main';
 import Material from './pages/Material/Material';
 import BOMList from './pages/BOMList/BOMList';
@@ -30,6 +31,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Login setUserName={setUserName} />
+          </Route>
+          <Route exact path="/res">
+            <Res />
           </Route>
           <div>
             <div className="header" style={{ justifyContent: 'space-between' }}>

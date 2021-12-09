@@ -12,9 +12,8 @@ import data from '../../data.json';
 let hot;
 const table = () => {
   const column = ['코드', '제품명', '시리얼코드', '판매 방법', '수량', '날짜', '이름', '주소', '연락처', '수리비', '현황', '수리내역'];
-  const hyperformulaInstance = HyperFormula.buildEmpty();
   const container = document.getElementById('container');
-  let hotData = [['', '', '', '', '', '', '', '', '', '', '', '수리내역']];
+  let hotData = [['', '', '', '', '', '', '', '', '', '', '']];
 
   hot = new Handsontable(container, {
     className: 'htCenter',
@@ -25,20 +24,7 @@ const table = () => {
     height: '730',
     licenseKey: 'non-commercial-and-evaluation',
     stretchH: 'all',
-    columns: [
-      {},
-      {},
-      {},
-      {},
-      { type: 'numeric' },
-      {},
-      {},
-      {},
-      {},
-      {},
-      { type: 'dropdown', source: ['AS 접수', '수리 중', '수리 완료'] },
-      {},
-    ],
+    columns: [{}, {}, {}, {}, { type: 'numeric' }, {}, {}, {}, {}, {}, { type: 'dropdown', source: ['AS 접수', '수리 중', '수리 완료'] }],
   });
 
   hot.updateSettings({
@@ -64,7 +50,7 @@ const AS = () => {
     },
     {
       to: '/AddASMTL',
-      name: 'AS 자재 추가',
+      name: '수리 내역',
     },
   ];
   let hotData = [];

@@ -22,7 +22,7 @@ const AddAS = () => {
     },
     {
       to: '/AddASMTL',
-      name: 'AS 자재 추가',
+      name: '수리 내역',
     },
   ];
   return (
