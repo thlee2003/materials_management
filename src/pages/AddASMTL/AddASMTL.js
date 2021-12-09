@@ -30,7 +30,7 @@ const AddASMTL = () => {
     },
     {
       to: '/AddASMTL',
-      name: 'AS 자재 추가',
+      name: '수리 내역',
     },
   ];
   const showPopup = (hotData) => {
@@ -42,8 +42,7 @@ const AddASMTL = () => {
       <Sidebar links={links} />
       <div className={styles.contents}>
         {bool ? <Popup showPopup={showPopup} /> : null}
-        <h1 className={styles.h1}>AS 등록</h1>
-        <h2 className={styles.h1}>선택</h2>
+        <h1 className={styles.h1}>수리 내역</h1>
         <div className={styles.datalist}>
           <div>
             <label for="customer">구매자 연락처</label>
@@ -74,7 +73,7 @@ const AddASMTL = () => {
         <div className={styles.table}>
           <div className={styles.middle}>
             <h2>자재 목록</h2>
-            <button onClick={showPopup}>추가</button>
+            <button onClick={showPopup}>자재 추가</button>
           </div>
           {bool ? null : (
             <div className={styles.table}>
