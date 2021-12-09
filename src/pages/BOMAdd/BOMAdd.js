@@ -18,9 +18,8 @@ import { HyperFormula } from 'hyperformula';
 // 테이블 생성 함수
 let hot1;
 let newData;
-let bool = false;
 const table = () => {
-  const column = ['분류', '품목명', '제조사', ' 수량', '단가', '총금액', '날짜', '작성자'];
+  const column = ['코드', '분류', '품목명', '제조사', ' 수량', '단가', '총금액', '날짜', '작성자'];
   const hyperformulaInstance = HyperFormula.buildEmpty();
   const container1 = document.getElementById('newTable');
   let header = true;
@@ -37,7 +36,7 @@ const table = () => {
     header = false;
   });
   console.log(header);
-  const hotData = [['', '', '', 0, 0, '=PRODUCT(D1:E1)', `${year}-${month}-${day}`, 'admin']];
+  const hotData = [['', '', '', '', 0, 0, '=PRODUCT(E1:F1)', `${year}-${month}-${day}`, 'admin']];
 
   // 테이블 옵션
   // 신규 자재
@@ -54,6 +53,7 @@ const table = () => {
       {},
       {},
       {},
+      {},
       { type: 'numeric' },
       { type: 'numeric' },
       { type: 'numeric', readOnly: true },
@@ -66,17 +66,18 @@ const table = () => {
     },
   });
 
-  let num = hot1.countRows();
   // 셀 추가
+  let num = hot1.countRows();
   let add = document.querySelector('.add');
   add.addEventListener('click', function () {
     let data = [
       '',
       '',
       '',
+      '',
       0,
       0,
-      '=PRODUCT(D' + (hot1.countRows() + 1) + ':E' + (hot1.countRows() + 1) + ')',
+      '=PRODUCT(E' + (hot1.countRows() + 1) + ':F' + (hot1.countRows() + 1) + ')',
       `${year}-${month}-${day}`,
       'admin',
     ];
@@ -105,6 +106,7 @@ const BOMAdd = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [bool, setBool] = useState(false);
   const [data, setData] = useState();
+  const hyperformulaInstance = HyperFormula.buildEmpty();
 
   const links = [
     {
@@ -118,6 +120,11 @@ const BOMAdd = () => {
   ];
   const showPopup = (date) => {
     setBool(!bool);
+    if (date !== undefined) {
+      for (let i = 0; i < date.length; i++) {
+        date[i].total_amount = '=PRODUCT(E' + (i + 1) + ':F' + (i + 1) + ')';
+      }
+    }
     setData(date);
   };
   if (data === undefined) {
@@ -125,6 +132,9 @@ const BOMAdd = () => {
   }
   const enrollment = () => {
     let checked = true;
+    if (name === '') {
+      checked = false;
+    }
     if (newData === undefined) {
       // 기존 자재 비교
       data.forEach((data) => {
@@ -219,6 +229,9 @@ const BOMAdd = () => {
                 height="100%"
                 licenseKey="non-commercial-and-evaluation"
                 stretchH="all"
+                formulas={{
+                  engine: hyperformulaInstance,
+                }}
               />
             </div>
           </div>

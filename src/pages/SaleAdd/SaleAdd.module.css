@@ -85,6 +85,11 @@
   font-size: 20px;
 }
 
+.middle button {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .date {
   display: flex;
   align-items: center;
@@ -102,7 +107,7 @@
 .table {
   border: 1px solid black;
   width: 90%;
-  height: 220px;
+  height: 200px;
   margin-top: 20px;
   margin-left: 5%;
 }

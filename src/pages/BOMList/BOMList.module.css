@@ -12,6 +12,12 @@
   margin-left: 20px;
 }
 
+.div h1 {
+  margin-left: 20px;
+}
+
 .content {
   margin-left: 20px;
+  height: 730px;
+  overflow-y: auto;
 }

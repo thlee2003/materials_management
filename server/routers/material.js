@@ -23,6 +23,7 @@ app.all('/info', (req, res) => {
       console.log(err);
     } else {
       console.log('등록 완료~!');
+      res.send(true);
     }
   });
 });

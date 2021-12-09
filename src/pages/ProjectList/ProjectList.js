@@ -23,8 +23,8 @@ const ProjectList = () => {
       <div className={styles.div}>
         <div className={styles.content}>
           <h1>프로젝트 목록</h1>
-          {data.project.map((a) => (
-            <PJList name={a.name} data={a.data} />
+          {data.project.map((a, index) => (
+            <PJList key={index + 1} name={a.name} data={a.data} />
           ))}
         </div>
       </div>

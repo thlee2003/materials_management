@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './Material.module.css';
 import Handsontable from 'handsontable';
 import axios from 'axios';
@@ -62,6 +62,7 @@ const table = (userName) => {
     let data = ['', '', '', '', 0, 0, '=PRODUCT(E' + hot.countRows() + ':F' + hot.countRows() + ')', `${year}-${month}-${day}`, 'admin'];
     hot.alter('insert_row', hot.countRows() - 1, 1);
     for (let i = 0; i < 9; i++) {
+      console.log(i);
       hot.setDataAtCell(hot.countRows() - 2, i, data[i]);
     }
     num += 1;
@@ -80,7 +81,6 @@ const table = (userName) => {
   hot.updateSettings({
     afterCreateRow: function (i) {
       hot.setDataAtCell(hot.countRows() - 1, 6, '=SUM(G1:G' + (hot.countRows() - 1) + ')');
-      hot.setDataAtCell(i - 1, 0, '');
     },
   });
 
@@ -93,6 +93,7 @@ const table = (userName) => {
       if (data[0] === '' || data[1] === '' || data[2] === '' || data[3] === '' || data[4] === 0 || data[5] === 0) {
         bool = false;
         alert('내용을 입력하세요!');
+        console.log(bool);
       }
       //---------------중복 데이터 확인--------------//
       axios.post('http://localhost:5000/material/check', {
@@ -110,7 +111,9 @@ const table = (userName) => {
       axios.post('http://localhost:5000/material/info', {
         abc: hotData.length,
         array: hotData,
-      }).then(() => {});
+      }).then((response) => {
+        alert("등록완료!")
+      });
     }
   });
 };
