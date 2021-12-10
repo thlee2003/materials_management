@@ -26,7 +26,6 @@ import Profile from './components/Profile/Profile';
 import { useCookies } from 'react-cookie';
 
 function App() {
-  const [isRemember, setIsRemember] = useState(false);
   const [cookies, setCookie, removeCookie] = useCookies(['rememberText']);
   const [cookies2, setCookie2, removeCookie2] = useCookies(['rememberText2']);
   const [userName, setUserName] = useState('');
@@ -36,7 +35,6 @@ function App() {
     if (cookies.rememberText !== undefined) {
       setUserName(cookies.rememberText);
       setDepartment(cookies2.rememberText2);
-      setIsRemember(true);
     }
   }, []);
   if (bool) {

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './BomList.module.css';
 
 import { HotTable } from '@handsontable/react';
-import Handsontable from 'handsontable';
 import axios from 'axios';
 import { HyperFormula } from 'hyperformula';
 

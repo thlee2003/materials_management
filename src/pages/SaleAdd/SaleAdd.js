@@ -113,8 +113,19 @@ const SaleAdd = () => {
     },
   ];
   const onclick = () => {
+    let info = [name, address, phone, email, company, number];
     hotData.pop();
+    hotData.forEach((data) => {
+      console.log(data);
+      data[5] = data[4] * data[5];
+      data[6] = data[7];
+      data.pop();
+      for (let i = 0; i < 6; i++) {
+        data.push(info[i]);
+      }
+    });
     console.log(hotData);
+
     console.log(name, address, phone, email, company, number);
     // setName('');
     // setAddress('');
