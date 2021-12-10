@@ -41,6 +41,8 @@ const Login = ({ setUserName, setDepartment }) => {
             setUserName(response.data.name);
             setDepartment(response.data.department);
             history.push('/Main');
+          } else {
+            alert("존재하지 않는 계정이거나 아이디 혹은 PW가 틀렸습니다.")
           }
         });
     }

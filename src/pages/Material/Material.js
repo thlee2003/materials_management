@@ -88,6 +88,7 @@ const table = (userName) => {
   // DB 저장
   let enrollment = document.querySelector('.enrollment');
   let bool = true;
+  let check=0;
   enrollment.addEventListener('click', function () {
     hotData.pop();
     hotData.forEach((data) => {
@@ -96,20 +97,26 @@ const table = (userName) => {
         alert('내용을 입력하세요!');
         console.log(bool);
       }
+      //---------------중복 데이터 확인--------------//
+      axios.post('http://localhost:5000/material/check', {
+        code: data[0]
+      }).then((response) => {
+        if(response.data.data1 === 'false') {
+          alert('동일한 코드가 존재합니다. 다른 코드를 입력해주세요.')
+        } else {
+          alert('등록 완료!')
+        }
+      });
+      //------------------------------------//
     });
-    console.log(bool);
+    console.log(check)
+    
     if (bool) {
-      axios
-        .post('http://localhost:5000/material/info', {
-          abc: hotData.length,
-          array: hotData,
-        })
-        .then((response) => {
-          alert('등록 완료!');
-          if (response.data === true) {
-            window.location.reload();
-          }
-        });
+      axios.post('http://localhost:5000/material/info', {
+        abc: hotData.length,
+        array: hotData,
+      }).then((response) => {
+      });
     }
   });
 };

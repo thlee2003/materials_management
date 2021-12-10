@@ -11,9 +11,11 @@ const userLogin = require('./routers/UserLogin');
 const res = require('./routers/User');
 const material = require('./routers/material');
 const MaterialData = require('./routers/MaterialData');
+const MaterialCheck = require('./routers/MaterialCheck')
 const bom = require('./routers/bom');
 const BomData = require('./routers/BomData');
 const project = require('./routers/Project');
+const BomList = require('./routers/BomList');
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -38,12 +40,14 @@ app.use(
 
 app.use('/login', login);
 app.use('/login', userLogin);
+app.use('/res', res)
 app.use('/material', material);
 app.use('/material', MaterialData);
+app.use('/material', MaterialCheck)
 app.use('/bom', bom);
 app.use('/bom', BomData);
 app.use('/project', project);
-app.use('/res', res);
+app.use('/bom', BomList)
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
