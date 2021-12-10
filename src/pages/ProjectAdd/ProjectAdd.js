@@ -9,14 +9,16 @@ import { HotTable } from '@handsontable/react';
 import Handsontable from 'handsontable';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
-import Popup from '../../components/Popup/Popup';
+import BomPopup from '../../components/BomPopup/BomPopup';
 import Input from '../../components/Input/Input';
+import List from '../../components/List/List';
 import axios from 'axios';
 
+let array = [];
 const ProjectAdd = () => {
   const column = ['코드', '분류', '품목명', ' 수량', '단가', '총금액', '날짜', '작성자'];
   const [bool, setBool] = useState(false);
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   const [name, setName] = useState('');
   const [startDate, setStartDate] = useState(new Date());
   if (data === undefined) {
@@ -33,28 +35,40 @@ const ProjectAdd = () => {
     },
   ];
 
-  const showPopup = (hotData) => {
+  const showPopup = (arr) => {
     setBool(!bool);
-    setData(hotData);
-    console.log(data);
+    console.log(Array.isArray(arr));
+    if (Array.isArray(arr)) {
+      setData(arr);
+    }
   };
 
+  const list = data.map((name) => <List name={name} />);
+
   const onclick = () => {
+    console.log(data);
     axios
       .post('http://localhost:5000/project/info', {
         ProjectName: name,
+        date: startDate,
+        bom: data,
+        length: data.length,
       })
-      .then(() => {
-        alert('등록 완료!');
+      .then((response) => {
+        console.log(response.data.data);
+        if (response.data.data === true) {
+          alert('등록 완료!');
+          window.location.reload();
+        }
       });
-    console.log(name);
+    // console.log(name);
   };
 
   return (
     <div className={styles.header}>
       <Sidebar links={links} />
       <div className={styles.div}>
-        {bool ? <Popup showPopup={showPopup} /> : null}
+        {bool ? <BomPopup showPopup={showPopup} /> : null}
         <div className={styles.top}>
           <h1>프로젝트 등록</h1>
           <button onClick={onclick}>등록</button>
@@ -81,20 +95,7 @@ const ProjectAdd = () => {
               <h2>자재 목록</h2>
               <button onClick={showPopup}>추가</button>
             </div>
-            {bool ? null : (
-              <div className={styles.table}>
-                <HotTable
-                  className="htCenter"
-                  data={data}
-                  colHeaders={column}
-                  rowHeaders={true}
-                  width="100%"
-                  height="100%"
-                  licenseKey="non-commercial-and-evaluation"
-                  stretchH="all"
-                />
-              </div>
-            )}
+            {list}
           </div>
         </div>
       </div>

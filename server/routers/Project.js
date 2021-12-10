@@ -1,19 +1,43 @@
 const express = require('express');
 const app = express.Router();
 const db = require('../config/db');
+const db3 = require('../config/db3');
 
 app.all('/info', (req, res) => {
   const ProjectName = req.body.ProjectName;
+  const date = req.body.date;
+  const bom = req.body.bom;
+  const length = req.body.length;
 
-  const sqlQuery =
-    'CREATE TABLE ' +
-    ProjectName +
-    ' (num INT NOT NULL AUTO_INCREMENT PRIMARY key, material_code VARCHAR(100), classification VARCHAR(50), item_name VARCHAR(50), quantity varchar(50), unit_price VARCHAR(50), total_amount VARCHAR(100), update_date VARCHAR(50), writer VARCHAR(50))';
-  db.query(sqlQuery, (err, result) => {
-    if (result) {
-      console.log(result);
-    } else if (err) {
+  console.log(ProjectName);
+  const sqlQuery1 = 'INSERT IGNORE INTO project (project_name,update_date) VALUES (?,?)';
+  db.query(sqlQuery1, [ProjectName, date], (err, result) => {
+    if (err) {
       console.log(err);
+    }
+  });
+
+  const sqlQuery2 = 'CREATE TABLE ' + ProjectName + ' (num INT NOT NULL AUTO_INCREMENT PRIMARY KEY, bom_name VARCHAR(100))';
+  db3.query(sqlQuery2, (err, result) => {});
+
+  let str1 = '';
+  for (let i = 1; i <= length; i++) {
+    str1 += '(?)';
+    if (i != length) {
+      str1 += ',';
+    }
+  }
+  let sendData;
+  const sqlQuery3 = 'INSERT INTO ' + ProjectName + ' (bom_name) VALUES' + str1;
+  db3.query(sqlQuery3, bom, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else if (result) {
+      console.log(result);
+      sendData = {
+        data: true,
+      };
+      res.send(sendData);
     }
   });
 });

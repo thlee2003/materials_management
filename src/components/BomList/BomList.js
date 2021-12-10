@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import styles from './List.module.css';
+import styles from './BomList.module.css';
 
 import { HotTable } from '@handsontable/react';
 import Handsontable from 'handsontable';
 import axios from 'axios';
 import { HyperFormula } from 'hyperformula';
 
-const List = ({ name }) => {
-  console.log(name);
+const BomList = ({ name, arr, check }) => {
+  // let hotData = [];
   const [hotData, setHotData] = useState([]);
   const column = ['코드', '분류', '품목명', ' 수량', '단가', '총금액', '날짜', '작성자'];
   const [bool, setBool] = useState(false);
+  const [checked, setChecked] = useState(false);
   const hyperformulaInstance = HyperFormula.buildEmpty();
   const onclick = () => {
     setBool(!bool);
@@ -28,11 +29,21 @@ const List = ({ name }) => {
       });
     console.log(hotData);
   };
+  const handleSingleCheck = (name) => {
+    setChecked(!checked);
+    if (!checked) {
+      arr.push(name);
+    } else {
+      arr = arr.filter((element) => element !== name);
+    }
+    check(arr);
+  };
   return (
     <div className={styles.list}>
       <div className={styles.name}>
         <span>{bool === false ? '|||' : 'X'}</span>
         <label onClick={onclick}>{name}</label>
+        <input type="checkbox" checked={checked} onChange={(e) => handleSingleCheck(name)} />
       </div>
       <div className={bool === true ? styles.container.show : styles.container}>
         <HotTable
@@ -63,4 +74,4 @@ const List = ({ name }) => {
     </div>
   );
 };
-export default List;
+export default BomList;
