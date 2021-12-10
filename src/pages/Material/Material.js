@@ -100,7 +100,7 @@ const table = (userName) => {
       axios.post('http://localhost:5000/material/check', {
         code: data[0]
       }).then((response) => {
-        if(response.data.data1 === 'false' || response.data.data1 === 'uhm') {
+        if(response.data.data1 === 'false') {
           alert('동일한 코드가 존재합니다. 다른 코드를 입력해주세요.')
         } else {
           alert('등록 완료!')

@@ -40,6 +40,7 @@ app.use(
 
 app.use('/login', login);
 app.use('/login', userLogin);
+app.use('/res', res)
 app.use('/material', material);
 app.use('/material', MaterialData);
 app.use('/material', MaterialCheck)

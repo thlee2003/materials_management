@@ -10,7 +10,7 @@ const Res = () => {
   const [checkedPw, setCheckedPw] = useState('');
   const [department, setDepartment] = useState('대표이사');
   const res = () => {
-    if (password === checkedPw) {
+    if (password === checkedPw && email.includes('@iwsolution.co.kr')) {
       axios
         .post('http://localhost:5000/res/res', {
           name: name,
@@ -25,6 +25,8 @@ const Res = () => {
             window.location.replace('/');
           }
         });
+    } else {
+      alert('이메일 혹은 비밀번호가 올바르지 않습니다.')
     }
   };
   return (
