@@ -116,7 +116,6 @@ const SaleAdd = () => {
     let info = [name, address, phone, email, company, number];
     hotData.pop();
     hotData.forEach((data) => {
-      console.log(data);
       data[5] = data[4] * data[5];
       data[6] = data[7];
       data.pop();
@@ -125,8 +124,9 @@ const SaleAdd = () => {
       }
     });
     console.log(hotData);
+    // hotdata db 넣기
 
-    console.log(name, address, phone, email, company, number);
+    // console.log(name, address, phone, email, company, number);
     // setName('');
     // setAddress('');
     // setPhone('');

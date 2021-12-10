@@ -19,7 +19,7 @@ const table = (userName) => {
   var month = today.getMonth() + 1;
   var day = today.getDate();
 
-  hotData = [['', '', '', '', 0, 0, '=PRODUCT(E1:F1)', `${year}-${month}-${day}`, 'admin']];
+  hotData = [['', '', '', '', 0, 0, '=PRODUCT(E1:F1)', `${year}-${month}-${day}`, userName]];
 
   // 테이블 옵션
   hot = new Handsontable(container, {
@@ -61,7 +61,7 @@ const table = (userName) => {
   // 셀 추가
   let add = document.querySelector('.add');
   add.addEventListener('click', function () {
-    let data = ['', '', '', '', 0, 0, '=PRODUCT(E' + hot.countRows() + ':F' + hot.countRows() + ')', `${year}-${month}-${day}`, 'admin'];
+    let data = ['', '', '', '', 0, 0, '=PRODUCT(E' + hot.countRows() + ':F' + hot.countRows() + ')', `${year}-${month}-${day}`, userName];
     hot.alter('insert_row', hot.countRows() - 1, 1);
     for (let i = 0; i < 9; i++) {
       hot.setDataAtCell(hot.countRows() - 2, i, data[i]);
