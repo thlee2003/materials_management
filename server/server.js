@@ -18,6 +18,9 @@ const BomList = require('./routers/BomList');
 const project = require('./routers/Project');
 const projectData = require('./routers/ProjectData');
 const projectList = require('./routers/ProjectList');
+const product = require('./routers/prodcut');
+const productList = require('./routers/productList');
+const productUpdate = require('./routers/productUpdate');
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -52,6 +55,9 @@ app.use('/bom', BomList);
 app.use('/project', project);
 app.use('/project', projectData);
 app.use('/project', projectList);
+app.use('/product', product);
+app.use('/product', productList);
+app.use('/product', productUpdate);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');

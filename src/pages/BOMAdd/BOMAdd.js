@@ -172,7 +172,7 @@ const BOMAdd = () => {
         .post('http://localhost:5000/bom/info', {
           BomName: name,
           Data: oldData,
-          length1: oldData.length,
+          length1: data.length,
           date: startDate,
         })
         .then((response) => {

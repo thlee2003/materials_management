@@ -91,7 +91,7 @@ function App() {
               <AddQuantity />
             </Route>
             <Route exact path="/ProduceAdd">
-              <ProduceAdd />
+              <ProduceAdd userName={userName} />
             </Route>
             <Route exact path="/SaleList">
               <SaleList />

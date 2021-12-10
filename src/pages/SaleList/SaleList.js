@@ -43,6 +43,7 @@ const SaleList = () => {
             stretchH="all"
             // readOnly
             columns={[{}, {}, {}, {}, {}, { type: 'numeric', numericFormat: { pattern: ' 0,0' } }, {}, {}, {}, {}, {}]}
+            readOnly
           />
         </div>
       </div>

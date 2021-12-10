@@ -7,7 +7,7 @@ import Handsontable from 'handsontable';
 import axios from 'axios';
 
 const Popup = ({ showPopup }) => {
-  const column = ['체크', '코드', '분류', '품목명', '수량', '단가', '총금액', '날짜', '이름'];
+  const column = ['체크', '코드', '분류', '품목명', '수량', '단가', '날짜', '이름'];
   const [hotdata, setHotdata] = useState([]);
   let date = [];
 
@@ -55,8 +55,8 @@ const Popup = ({ showPopup }) => {
             { data: 'material_code' },
             { data: 'classification' },
             { data: 'item_name' },
-            { data: 'quantity' },
-            { data: 'unit_price' },
+            { data: 'quantity', type: 'numeric', numericFormat: { pattern: '0,0' } },
+            { data: 'unit_price', type: 'numeric', numericFormat: { pattern: '0,0' } },
             { data: 'update_date' },
             { data: 'user_name' },
           ]}
