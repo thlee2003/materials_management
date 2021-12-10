@@ -162,19 +162,27 @@ const BOMAdd = () => {
     }
 
     if (checked) {
-      console.log(data, newData);
-      axios.post('http://localhost:5000/bom/info', {
-        BomName: name,
-        Data: data,
-        length1: data.length,
-        date: startDate,
-      }).then((response) => {
-        if(response.data.data1 === 'false') {
-          alert('동일한 BOM 이름이 존재합니다.')
-        } else {
-          alert('등록 완료!')
-        }
-      })
+      let oldData = [];
+      data.map((data) => {
+        const target = Object.values(data);
+        oldData.push(target);
+      });
+      console.log(oldData, newData);
+      axios
+        .post('http://localhost:5000/bom/info', {
+          BomName: name,
+          Data: oldData,
+          length1: oldData.length,
+          date: startDate,
+        })
+        .then((response) => {
+          if (response.data.data1 === 'false') {
+            alert('동일한 BOM 이름이 존재합니다.');
+          } else {
+            alert('등록 완료!');
+            window.location.reload();
+          }
+        });
     }
   };
   return (
