@@ -116,8 +116,9 @@ const Material = ({ userName }) => {
                 hotData[i][4] === 0 ||
                 hotData[i][5] === 0
             ) {
-                console.log('실채');
+                console.log('실패');
                 bool = false;
+                // alert('내용을 입력해주세요!')
             } else {
                 bool = true;
             }

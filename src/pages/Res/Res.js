@@ -19,12 +19,14 @@ const Res = () => {
           department: department,
         })
         .then((response) => {
-          console.log(response.data);
-          if (response.data === true) {
-            alert('회원가입 성공했습니다.');
+          console.log(response.data.data1);
+          if (response.data.data1 === 'true') {
+            alert('회원가입에 성공했습니다.');
             window.location.replace('/');
+          } else {
+            alert('동일한 이메일로 회원가입이 되어있습니다.')
           }
-        });
+        }); 
     } else {
       alert('이메일 혹은 비밀번호가 올바르지 않습니다.')
     }
